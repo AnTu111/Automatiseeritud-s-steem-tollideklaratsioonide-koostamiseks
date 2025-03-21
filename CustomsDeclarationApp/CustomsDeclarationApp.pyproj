@@ -25,6 +25,7 @@
     <Compile Include="crud.py" />
     <Compile Include="CustomsDeclarationApp.py" />
     <Compile Include="database.py" />
+    <Compile Include="init_db.py" />
     <Compile Include="main.py" />
     <Compile Include="models.py" />
     <Compile Include="schemas.py" />
