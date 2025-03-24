@@ -12,6 +12,7 @@
     <Name>CustomsDeclarationApp</Name>
     <RootNamespace>CustomsDeclarationApp</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,10 +30,12 @@
     <Compile Include="main.py" />
     <Compile Include="models.py" />
     <Compile Include="schemas.py" />
+    <Compile Include="test_db_connection.py" />
     <Compile Include="xml_generator.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="migrations\" />
+    <Folder Include="templates\" />
     <Folder Include="routers\" />
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
+    <Content Include="templates\base.html" />
+    <Content Include="templates\consignees.html" />
+    <Content Include="templates\countries.html" />
+    <Content Include="templates\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
