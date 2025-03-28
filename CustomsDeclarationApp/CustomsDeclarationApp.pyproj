@@ -55,8 +55,8 @@
     <Content Include="templates\consignees.html" />
     <Content Include="templates\countries.html" />
     <Content Include="templates\index.html" />
-    <Content Include="update_consignee.html" />
-    <Content Include="update_country.html" />
+    <Content Include="templates\update_consignee.html" />
+    <Content Include="templates\update_country.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

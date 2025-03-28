@@ -41,7 +41,7 @@ def edit_country_page(request: Request, country_id: int, db: Session = Depends(g
     country = db.query(models.Country).filter(models.Country.id == country_id).first()
     if not country:
         raise HTTPException(status_code=404, detail="Country not found")
-    return templates.TemplateResponse("edit_country.html", {"request": request, "country": country})
+    return templates.TemplateResponse("update_country.html", {"request": request, "country": country})
 
 # Обновление страны
 @app.post("/countries/edit/{country_id}")
@@ -80,7 +80,7 @@ def edit_consignee_page(request: Request, consignee_id: int, db: Session = Depen
     consignee = db.query(models.Consignee).filter(models.Consignee.id == consignee_id).first()
     if not consignee:
         raise HTTPException(status_code=404, detail="Consignee not found")
-    return templates.TemplateResponse("edit_consignee.html", {"request": request, "consignee": consignee})
+    return templates.TemplateResponse("update_consignee.html", {"request": request, "consignee": consignee})
 
 # Обновление получателя
 @app.post("/consignees/edit/{consignee_id}")
