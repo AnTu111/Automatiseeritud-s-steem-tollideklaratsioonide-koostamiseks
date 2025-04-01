@@ -28,3 +28,42 @@ class Consignee(ConsigneeBase):
 
     class Config:
         from_attributes = True
+
+class IncotermBase(BaseModel):
+    code: str
+    description: Optional[str] = None
+
+class IncotermCreate(IncotermBase):
+    pass
+
+class Incoterm(IncotermBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class TransportModeBase(BaseModel):
+    name: str
+
+class TransportModeCreate(TransportModeBase):
+    pass
+
+class TransportMode(TransportModeBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class PackageBase(BaseModel):
+    type: str
+    description: Optional[str] = None
+
+class PackageCreate(PackageBase):
+    pass
+
+class Package(PackageBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+

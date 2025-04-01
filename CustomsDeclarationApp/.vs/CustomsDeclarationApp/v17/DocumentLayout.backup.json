@@ -90,8 +90,7 @@
               "RelativeToolTip": "database.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:52.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:52.936Z"
             },
             {
               "$type": "Document",
@@ -103,8 +102,7 @@
               "RelativeToolTip": "init_db.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:00.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:00.758Z"
             },
             {
               "$type": "Document",
@@ -116,8 +114,7 @@
               "RelativeToolTip": "main.py",
               "ViewState": "AgIAAGEAAAAAAAAAAAAqwGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:07.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:07.757Z"
             },
             {
               "$type": "Document",
@@ -129,8 +126,7 @@
               "RelativeToolTip": "schemas.py",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:23.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:23.534Z"
             },
             {
               "$type": "Document",
@@ -142,8 +138,7 @@
               "RelativeToolTip": "models.py",
               "ViewState": "AgIAAF8AAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:15.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:15.911Z"
             },
             {
               "$type": "Document",
@@ -155,8 +150,7 @@
               "RelativeToolTip": "test_db_connection.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:47.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:47.444Z"
             },
             {
               "$type": "Document",
@@ -168,8 +162,7 @@
               "RelativeToolTip": "templates\\update_consignee.html",
               "ViewState": "AgIAAAgAAAAAAAAAAAAkwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-27T21:31:48.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T21:31:48.48Z"
             },
             {
               "$type": "Document",
@@ -179,7 +172,7 @@
               "RelativeDocumentMoniker": "templates\\update_country.html",
               "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_country.html",
               "RelativeToolTip": "templates\\update_country.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-03-27T21:31:23.805Z",
               "EditorCaption": ""
@@ -194,8 +187,7 @@
               "RelativeToolTip": "xml_generator.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:57.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:57.1Z"
             },
             {
               "$type": "Document",
@@ -207,8 +199,7 @@
               "RelativeToolTip": "CustomsDeclarationApp.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:50.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:50.769Z"
             },
             {
               "$type": "Document",
@@ -220,8 +211,7 @@
               "RelativeToolTip": "crud.py",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:42.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:42.34Z"
             },
             {
               "$type": "Document",
@@ -233,8 +223,7 @@
               "RelativeToolTip": ".env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-24T22:17:33.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:33.892Z"
             },
             {
               "$type": "Document",
@@ -246,8 +235,7 @@
               "RelativeToolTip": "templates\\index.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:23.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:23.113Z"
             },
             {
               "$type": "Document",
@@ -259,8 +247,7 @@
               "RelativeToolTip": "templates\\countries.html",
               "ViewState": "AgIAABkAAAAAAAAAAAAswC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:12.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:12.452Z"
             },
             {
               "$type": "Document",
@@ -272,8 +259,7 @@
               "RelativeToolTip": "templates\\consignees.html",
               "ViewState": "AgIAABkAAAAAAAAAAAAswC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:03.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:03.45Z"
             },
             {
               "$type": "Document",
@@ -285,8 +271,7 @@
               "RelativeToolTip": "templates\\Base.html",
               "ViewState": "AgIAAAQAAAAAAAAAAAAswBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T21:47:18.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T21:47:18.418Z"
             }
           ]
         }

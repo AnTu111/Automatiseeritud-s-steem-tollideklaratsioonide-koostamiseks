@@ -64,3 +64,80 @@ def delete_consignee(db: Session, consignee_id: int):
         db.delete(db_consignee)
         db.commit()
     return db_consignee
+
+def get_incoterms(db: Session):
+    return db.query(models.Incoterm).all()
+
+def create_incoterm(db: Session, incoterm: schemas.IncotermCreate):
+    db_incoterm = models.Incoterm(**incoterm.model_dump())
+    db.add(db_incoterm)
+    db.commit()
+    db.refresh(db_incoterm)
+    return db_incoterm
+
+def update_incoterm(db: Session, incoterm_id: int, code: str, description: Optional[str]):
+    db_incoterm = db.query(models.Incoterm).filter(models.Incoterm.id == incoterm_id).first()
+    if db_incoterm:
+        db_incoterm.code = code
+        db_incoterm.description = description
+        db.commit()
+        db.refresh(db_incoterm)
+    return db_incoterm
+
+def delete_incoterm(db: Session, incoterm_id: int):
+    db_incoterm = db.query(models.Incoterm).filter(models.Incoterm.id == incoterm_id).first()
+    if db_incoterm:
+        db.delete(db_incoterm)
+        db.commit()
+    return db_incoterm
+
+def get_transport_modes(db: Session):
+    return db.query(models.TransportMode).all()
+
+def create_transport_mode(db: Session, transport_mode: schemas.TransportModeCreate):
+    db_mode = models.TransportMode(name=transport_mode.name)
+    db.add(db_mode)
+    db.commit()
+    db.refresh(db_mode)
+    return db_mode
+
+def update_transport_mode(db: Session, mode_id: int, name: str):
+    db_mode = db.query(models.TransportMode).filter(models.TransportMode.id == mode_id).first()
+    if db_mode:
+        db_mode.name = name
+        db.commit()
+        db.refresh(db_mode)
+    return db_mode
+
+def delete_transport_mode(db: Session, mode_id: int):
+    db_mode = db.query(models.TransportMode).filter(models.TransportMode.id == mode_id).first()
+    if db_mode:
+        db.delete(db_mode)
+        db.commit()
+    return db_mode
+
+def get_packages(db: Session):
+    return db.query(models.Package).all()
+
+def create_package(db: Session, package: schemas.PackageCreate):
+    db_package = models.Package(**package.model_dump())
+    db.add(db_package)
+    db.commit()
+    db.refresh(db_package)
+    return db_package
+
+def update_package(db: Session, package_id: int, type: str, description: Optional[str]):
+    db_package = db.query(models.Package).filter(models.Package.id == package_id).first()
+    if db_package:
+        db_package.type = type
+        db_package.description = description
+        db.commit()
+        db.refresh(db_package)
+    return db_package
+
+def delete_package(db: Session, package_id: int):
+    db_package = db.query(models.Package).filter(models.Package.id == package_id).first()
+    if db_package:
+        db.delete(db_package)
+        db.commit()
+    return db_package

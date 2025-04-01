@@ -97,3 +97,78 @@ def delete_consignee_post(consignee_id: int, db: Session = Depends(get_db)):
     if consignee:
         return RedirectResponse(url="/consignees", status_code=303)
     raise HTTPException(status_code=404, detail="Consignee not found")
+
+@app.get("/incoterms", response_class=HTMLResponse)
+def incoterm_list(request: Request, db: Session = Depends(get_db)):
+    incoterms = crud.get_incoterms(db)
+    return templates.TemplateResponse("incoterms.html", {"request": request, "incoterms": incoterms})
+
+@app.post("/incoterms/add")
+def add_incoterm(code: str = Form(...), description: str = Form(None), db: Session = Depends(get_db)):
+    crud.create_incoterm(db, schemas.IncotermCreate(code=code, description=description))
+    return RedirectResponse(url="/incoterms", status_code=303)
+
+@app.get("/incoterms/edit/{incoterm_id}", response_class=HTMLResponse)
+def edit_incoterm_page(incoterm_id: int, request: Request, db: Session = Depends(get_db)):
+    incoterm = db.query(models.Incoterm).filter(models.Incoterm.id == incoterm_id).first()
+    return templates.TemplateResponse("update_incoterm.html", {"request": request, "incoterm": incoterm})
+
+@app.post("/incoterms/edit/{incoterm_id}")
+def edit_incoterm(incoterm_id: int, code: str = Form(...), description: str = Form(None), db: Session = Depends(get_db)):
+    crud.update_incoterm(db, incoterm_id, code, description)
+    return RedirectResponse(url="/incoterms", status_code=303)
+
+@app.post("/incoterms/delete/{incoterm_id}")
+def delete_incoterm(incoterm_id: int, db: Session = Depends(get_db)):
+    crud.delete_incoterm(db, incoterm_id)
+    return RedirectResponse(url="/incoterms", status_code=303)
+
+@app.get("/transport_modes", response_class=HTMLResponse)
+def transport_modes(request: Request, db: Session = Depends(get_db)):
+    modes = crud.get_transport_modes(db)
+    return templates.TemplateResponse("transport_modes.html", {"request": request, "transport_modes": modes})
+
+@app.post("/transport_modes/add")
+def add_transport_mode(name: str = Form(...), db: Session = Depends(get_db)):
+    crud.create_transport_mode(db, schemas.TransportModeCreate(name=name))
+    return RedirectResponse(url="/transport_modes", status_code=303)
+
+@app.get("/transport_modes/edit/{mode_id}", response_class=HTMLResponse)
+def edit_transport_mode_page(mode_id: int, request: Request, db: Session = Depends(get_db)):
+    mode = db.query(models.TransportMode).filter(models.TransportMode.id == mode_id).first()
+    return templates.TemplateResponse("update_transport_mode.html", {"request": request, "transport_mode": mode})
+
+@app.post("/transport_modes/edit/{mode_id}")
+def edit_transport_mode(mode_id: int, name: str = Form(...), db: Session = Depends(get_db)):
+    crud.update_transport_mode(db, mode_id, name)
+    return RedirectResponse(url="/transport_modes", status_code=303)
+
+@app.post("/transport_modes/delete/{mode_id}")
+def delete_transport_mode(mode_id: int, db: Session = Depends(get_db)):
+    crud.delete_transport_mode(db, mode_id)
+    return RedirectResponse(url="/transport_modes", status_code=303)
+
+@app.get("/packages", response_class=HTMLResponse)
+def package_list(request: Request, db: Session = Depends(get_db)):
+    packages = crud.get_packages(db)
+    return templates.TemplateResponse("packages.html", {"request": request, "packages": packages})
+
+@app.post("/packages/add")
+def add_package(type: str = Form(...), description: Optional[str] = Form(None), db: Session = Depends(get_db)):
+    crud.create_package(db, schemas.PackageCreate(type=type, description=description))
+    return RedirectResponse(url="/packages", status_code=303)
+
+@app.get("/packages/edit/{package_id}", response_class=HTMLResponse)
+def edit_package_page(package_id: int, request: Request, db: Session = Depends(get_db)):
+    package = db.query(models.Package).filter(models.Package.id == package_id).first()
+    return templates.TemplateResponse("update_package.html", {"request": request, "package": package})
+
+@app.post("/packages/edit/{package_id}")
+def edit_package(package_id: int, type: str = Form(...), description: Optional[str] = Form(None), db: Session = Depends(get_db)):
+    crud.update_package(db, package_id, type, description)
+    return RedirectResponse(url="/packages", status_code=303)
+
+@app.post("/packages/delete/{package_id}")
+def delete_package(package_id: int, db: Session = Depends(get_db)):
+    crud.delete_package(db, package_id)
+    return RedirectResponse(url="/packages", status_code=303)
