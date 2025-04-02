@@ -67,3 +67,15 @@ class Package(PackageBase):
     class Config:
         from_attributes = True
 
+class HarmonizedCodeBase(BaseModel):
+    code: str
+    description: Optional[str] = None
+
+class HarmonizedCodeCreate(HarmonizedCodeBase):
+    pass
+
+class HarmonizedCode(HarmonizedCodeBase):
+    id: int
+
+    class Config:
+        from_attributes = True

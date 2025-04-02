@@ -54,9 +54,17 @@
     <Content Include="templates\base.html" />
     <Content Include="templates\consignees.html" />
     <Content Include="templates\countries.html" />
+    <Content Include="templates\harmonized_codes.html" />
+    <Content Include="templates\incoterms.html" />
     <Content Include="templates\index.html" />
+    <Content Include="templates\packages.html" />
+    <Content Include="templates\transport_modes.html" />
     <Content Include="templates\update_consignee.html" />
     <Content Include="templates\update_country.html" />
+    <Content Include="templates\update_harmonized_code.html" />
+    <Content Include="templates\update_incoterm.html" />
+    <Content Include="templates\update_package.html" />
+    <Content Include="templates\update_transport_mode.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

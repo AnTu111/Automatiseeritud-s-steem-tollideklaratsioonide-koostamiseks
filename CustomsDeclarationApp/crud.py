@@ -141,3 +141,29 @@ def delete_package(db: Session, package_id: int):
         db.delete(db_package)
         db.commit()
     return db_package
+
+def get_harmonized_codes(db: Session):
+    return db.query(models.HarmonizedCode).all()
+
+def create_harmonized_code(db: Session, code: schemas.HarmonizedCodeCreate):
+    db_code = models.HarmonizedCode(**code.model_dump())
+    db.add(db_code)
+    db.commit()
+    db.refresh(db_code)
+    return db_code
+
+def update_harmonized_code(db: Session, code_id: int, code: str, description: Optional[str]):
+    db_code = db.query(models.HarmonizedCode).filter(models.HarmonizedCode.id == code_id).first()
+    if db_code:
+        db_code.code = code
+        db_code.description = description
+        db.commit()
+        db.refresh(db_code)
+    return db_code
+
+def delete_harmonized_code(db: Session, code_id: int):
+    db_code = db.query(models.HarmonizedCode).filter(models.HarmonizedCode.id == code_id).first()
+    if db_code:
+        db.delete(db_code)
+        db.commit()
+    return db_code

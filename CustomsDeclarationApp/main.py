@@ -172,3 +172,28 @@ def edit_package(package_id: int, type: str = Form(...), description: Optional[s
 def delete_package(package_id: int, db: Session = Depends(get_db)):
     crud.delete_package(db, package_id)
     return RedirectResponse(url="/packages", status_code=303)
+
+@app.get("/harmonized_codes", response_class=HTMLResponse)
+def harmonized_code_list(request: Request, db: Session = Depends(get_db)):
+    codes = crud.get_harmonized_codes(db)
+    return templates.TemplateResponse("harmonized_codes.html", {"request": request, "codes": codes})
+
+@app.post("/harmonized_codes/add")
+def add_harmonized_code(code: str = Form(...), description: Optional[str] = Form(None), db: Session = Depends(get_db)):
+    crud.create_harmonized_code(db, schemas.HarmonizedCodeCreate(code=code, description=description))
+    return RedirectResponse(url="/harmonized_codes", status_code=303)
+
+@app.get("/harmonized_codes/edit/{code_id}", response_class=HTMLResponse)
+def edit_harmonized_code_page(code_id: int, request: Request, db: Session = Depends(get_db)):
+    code = db.query(models.HarmonizedCode).filter(models.HarmonizedCode.id == code_id).first()
+    return templates.TemplateResponse("update_harmonized_code.html", {"request": request, "code": code})
+
+@app.post("/harmonized_codes/edit/{code_id}")
+def edit_harmonized_code(code_id: int, code: str = Form(...), description: Optional[str] = Form(None), db: Session = Depends(get_db)):
+    crud.update_harmonized_code(db, code_id, code, description)
+    return RedirectResponse(url="/harmonized_codes", status_code=303)
+
+@app.post("/harmonized_codes/delete/{code_id}")
+def delete_harmonized_code(code_id: int, db: Session = Depends(get_db)):
+    crud.delete_harmonized_code(db, code_id)
+    return RedirectResponse(url="/harmonized_codes", status_code=303)
