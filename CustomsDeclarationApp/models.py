@@ -3,7 +3,7 @@ from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
-# Страны
+
 class Country(Base):
     __tablename__ = "countries"
 
@@ -12,7 +12,7 @@ class Country(Base):
     code = Column(String(50), unique=True, nullable=False)
 
 
-# Инкотермс (условия поставки)
+
 class Incoterm(Base):
     __tablename__ = "incoterms"
 
@@ -21,7 +21,7 @@ class Incoterm(Base):
     description = Column(Text)
 
 
-# Виды транспорта
+
 class TransportMode(Base):
     __tablename__ = "transport_modes"
 
@@ -29,7 +29,7 @@ class TransportMode(Base):
     name = Column(String(255), unique=True, nullable=False)
 
 
-# Получатели (Consignees)
+#  (Consignees)
 class Consignee(Base):
     __tablename__ = "consignees"
 
@@ -40,7 +40,7 @@ class Consignee(Base):
     identification_number = Column(String(100), unique=True)
 
 
-# Типы упаковки
+
 class Package(Base):
     __tablename__ = "packages"
 
@@ -49,7 +49,7 @@ class Package(Base):
     description = Column(Text)
 
 
-# Гармонизированные коды товаров
+
 class HarmonizedCode(Base):
     __tablename__ = "harmonized_codes"
 
@@ -58,7 +58,7 @@ class HarmonizedCode(Base):
     description = Column(Text)
 
 
-# Таможенные декларации
+
 class Declaration(Base):
     __tablename__ = "declarations"
 
@@ -77,7 +77,7 @@ class Declaration(Base):
     incoterm = relationship("Incoterm")
 
 
-# Товары (Goods)
+#  (Goods)
 class Goods(Base):
     __tablename__ = "goods"
 
@@ -102,12 +102,36 @@ class Goods(Base):
         CheckConstraint("statistical_value >= 0", name="check_statistical_value"),
     )
 
+class CustomsOffice(Base):
+    __tablename__ = "customs_offices"
 
-# Подключаемся к базе (SQLite, MySQL или другая)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    code = Column(String(50), unique=True, nullable=False)
+    location = Column(String(255), nullable=False)
+
+class Currency(Base):
+    __tablename__ = "currencies"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    code = Column(String(10), unique=True, nullable=False)
+    name = Column(String(100), nullable=False)
+
+
+class Document(Base):
+    __tablename__ = "documents"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    type = Column(String(50), unique=True, nullable=False)
+    description = Column(String(255), nullable=False)
+
+
+
+
+
 # Подключаемся к MySQL
 engine = create_engine("mysql+pymysql://root@localhost/customs_declarations")
 
 # Создаем таблицы
 Base.metadata.create_all(engine)
 
-print("✅ Все таблицы успешно созданы в базе данных!")
+print("✅ All tables have been successfully created!")

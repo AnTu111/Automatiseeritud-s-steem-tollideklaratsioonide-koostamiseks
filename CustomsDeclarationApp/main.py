@@ -197,3 +197,79 @@ def edit_harmonized_code(code_id: int, code: str = Form(...), description: Optio
 def delete_harmonized_code(code_id: int, db: Session = Depends(get_db)):
     crud.delete_harmonized_code(db, code_id)
     return RedirectResponse(url="/harmonized_codes", status_code=303)
+
+
+@app.get("/customs_offices", response_class=HTMLResponse)
+def customs_office_list(request: Request, db: Session = Depends(get_db)):
+    offices = crud.get_customs_offices(db)
+    return templates.TemplateResponse("customs_offices.html", {"request": request, "offices": offices})
+
+@app.post("/customs_offices/add")
+def add_customs_office(code: str = Form(...), location: str = Form(...), db: Session = Depends(get_db)):
+    crud.create_customs_office(db, schemas.CustomsOfficeCreate(code=code, location=location))
+    return RedirectResponse(url="/customs_offices", status_code=303)
+
+@app.get("/customs_offices/edit/{office_id}", response_class=HTMLResponse)
+def edit_customs_office_page(office_id: int, request: Request, db: Session = Depends(get_db)):
+    office = db.query(models.CustomsOffice).filter(models.CustomsOffice.id == office_id).first()
+    return templates.TemplateResponse("update_customs_office.html", {"request": request, "office": office})
+
+@app.post("/customs_offices/edit/{office_id}")
+def edit_customs_office(office_id: int, code: str = Form(...), location: str = Form(...), db: Session = Depends(get_db)):
+    crud.update_customs_office(db, office_id, code, location)
+    return RedirectResponse(url="/customs_offices", status_code=303)
+
+@app.post("/customs_offices/delete/{office_id}")
+def delete_customs_office(office_id: int, db: Session = Depends(get_db)):
+    crud.delete_customs_office(db, office_id)
+    return RedirectResponse(url="/customs_offices", status_code=303)
+
+@app.get("/currencies", response_class=HTMLResponse)
+def currency_list(request: Request, db: Session = Depends(get_db)):
+    currencies = crud.get_currencies(db)
+    return templates.TemplateResponse("currencies.html", {"request": request, "currencies": currencies})
+
+@app.post("/currencies/add")
+def add_currency(code: str = Form(...), name: str = Form(...), db: Session = Depends(get_db)):
+    crud.create_currency(db, schemas.CurrencyCreate(code=code, name=name))
+    return RedirectResponse(url="/currencies", status_code=303)
+
+@app.get("/currencies/edit/{currency_id}", response_class=HTMLResponse)
+def edit_currency_page(currency_id: int, request: Request, db: Session = Depends(get_db)):
+    currency = db.query(models.Currency).filter(models.Currency.id == currency_id).first()
+    return templates.TemplateResponse("update_currency.html", {"request": request, "currency": currency})
+
+@app.post("/currencies/edit/{currency_id}")
+def edit_currency(currency_id: int, code: str = Form(...), name: str = Form(...), db: Session = Depends(get_db)):
+    crud.update_currency(db, currency_id, code, name)
+    return RedirectResponse(url="/currencies", status_code=303)
+
+@app.post("/currencies/delete/{currency_id}")
+def delete_currency(currency_id: int, db: Session = Depends(get_db)):
+    crud.delete_currency(db, currency_id)
+    return RedirectResponse(url="/currencies", status_code=303)
+
+@app.get("/documents", response_class=HTMLResponse)
+def document_list(request: Request, db: Session = Depends(get_db)):
+    documents = crud.get_documents(db)
+    return templates.TemplateResponse("documents.html", {"request": request, "documents": documents})
+
+@app.post("/documents/add")
+def add_document(type: str = Form(...), description: str = Form(...), db: Session = Depends(get_db)):
+    crud.create_document(db, schemas.DocumentCreate(type=type, description=description))
+    return RedirectResponse(url="/documents", status_code=303)
+
+@app.get("/documents/edit/{doc_id}", response_class=HTMLResponse)
+def edit_document_page(doc_id: int, request: Request, db: Session = Depends(get_db)):
+    document = db.query(models.Document).filter(models.Document.id == doc_id).first()
+    return templates.TemplateResponse("update_document.html", {"request": request, "document": document})
+
+@app.post("/documents/edit/{doc_id}")
+def edit_document(doc_id: int, type: str = Form(...), description: str = Form(...), db: Session = Depends(get_db)):
+    crud.update_document(db, doc_id, type, description)
+    return RedirectResponse(url="/documents", status_code=303)
+
+@app.post("/documents/delete/{doc_id}")
+def delete_document(doc_id: int, db: Session = Depends(get_db)):
+    crud.delete_document(db, doc_id)
+    return RedirectResponse(url="/documents", status_code=303)

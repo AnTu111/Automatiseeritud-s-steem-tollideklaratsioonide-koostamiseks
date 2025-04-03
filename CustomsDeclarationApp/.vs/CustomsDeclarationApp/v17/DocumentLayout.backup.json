@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_package.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\update_package.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\Base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\harmonized_codes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\harmonized_codes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_harmonized_code.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\update_harmonized_code.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\main.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -15,12 +27,24 @@
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:crud.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\test_db_connection.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:test_db_connection.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\schemas.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:schemas.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\consignees.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_package.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\update_package.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\test_db_connection.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:test_db_connection.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\database.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -43,14 +67,6 @@
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\transport_modes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\packages.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\packages.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -59,16 +75,8 @@
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\update_transport_mode.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\Base.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\incoterms.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\incoterms.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|solutionrelative:templates\\consignees.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A50287-C2EE-40E0-BB10-9FF724830240}|CustomsDeclarationApp.pyproj|C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_country.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -93,20 +101,40 @@
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 250,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "update_harmonized_code.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_harmonized_code.html",
+              "RelativeDocumentMoniker": "templates\\update_harmonized_code.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_harmonized_code.html",
+              "RelativeToolTip": "templates\\update_harmonized_code.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-02T21:28:39.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "harmonized_codes.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\harmonized_codes.html",
+              "RelativeDocumentMoniker": "templates\\harmonized_codes.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\harmonized_codes.html",
+              "RelativeToolTip": "templates\\harmonized_codes.html",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-02T21:28:07.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "update_package.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_package.html",
               "RelativeDocumentMoniker": "templates\\update_package.html",
@@ -114,90 +142,60 @@
               "RelativeToolTip": "templates\\update_package.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T21:13:55.211Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "transport_modes.html",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\transport_modes.html",
-              "RelativeDocumentMoniker": "templates\\transport_modes.html",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\transport_modes.html",
-              "RelativeToolTip": "templates\\transport_modes.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T20:36:43.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "update_consignee.html",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_consignee.html",
-              "RelativeDocumentMoniker": "templates\\update_consignee.html",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_consignee.html",
-              "RelativeToolTip": "templates\\update_consignee.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-27T21:31:48.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T21:13:55.211Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "xml_generator.py",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\xml_generator.py",
-              "RelativeDocumentMoniker": "xml_generator.py",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\xml_generator.py",
-              "RelativeToolTip": "xml_generator.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:57.1Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "init_db.py",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\init_db.py",
-              "RelativeDocumentMoniker": "init_db.py",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\init_db.py",
-              "RelativeToolTip": "init_db.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:00.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "schemas.py",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\schemas.py",
               "RelativeDocumentMoniker": "schemas.py",
               "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\schemas.py",
               "RelativeToolTip": "schemas.py",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAlwEoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:23.534Z",
+              "WhenOpened": "2025-03-24T22:18:23.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "consignees.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html",
+              "RelativeDocumentMoniker": "templates\\consignees.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html",
+              "RelativeToolTip": "templates\\consignees.html",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T22:17:03.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "base.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html",
+              "RelativeDocumentMoniker": "templates\\Base.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html",
+              "RelativeToolTip": "templates\\Base.html",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwA8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T21:47:18.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html",
+              "RelativeDocumentMoniker": "templates\\index.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html",
+              "RelativeToolTip": "templates\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-24T22:17:23.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "database.py",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\database.py",
-              "RelativeDocumentMoniker": "database.py",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\database.py",
-              "RelativeToolTip": "database.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:52.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "test_db_connection.py",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\test_db_connection.py",
               "RelativeDocumentMoniker": "test_db_connection.py",
@@ -205,64 +203,107 @@
               "RelativeToolTip": "test_db_connection.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:47.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:47.444Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "crud.py",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\crud.py",
-              "RelativeDocumentMoniker": "crud.py",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\crud.py",
-              "RelativeToolTip": "crud.py",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAAAHQAAAASAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "database.py",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\database.py",
+              "RelativeDocumentMoniker": "database.py",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\database.py",
+              "RelativeToolTip": "database.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:42.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:52.936Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "main.py",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\main.py",
-              "RelativeDocumentMoniker": "main.py",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\main.py",
-              "RelativeToolTip": "main.py",
-              "ViewState": "AgIAAI0AAABAc2cGj88pwJwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:07.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "models.py",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\models.py",
               "RelativeDocumentMoniker": "models.py",
               "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\models.py",
               "RelativeToolTip": "models.py",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAlwDQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:15.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:15.911Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html",
-              "RelativeDocumentMoniker": "templates\\index.html",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\index.html",
-              "RelativeToolTip": "templates\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:23.113Z",
-              "EditorCaption": ""
+              "DocumentIndex": 5,
+              "Title": "crud.py",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\crud.py",
+              "RelativeDocumentMoniker": "crud.py",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\crud.py",
+              "RelativeToolTip": "crud.py",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAQwJ4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-24T22:17:42.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.py",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\main.py",
+              "RelativeDocumentMoniker": "main.py",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\main.py",
+              "RelativeToolTip": "main.py",
+              "ViewState": "AgIAALAAAAAAAAAAAAAQwL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-24T22:18:07.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "init_db.py",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\init_db.py",
+              "RelativeDocumentMoniker": "init_db.py",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\init_db.py",
+              "RelativeToolTip": "init_db.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-24T22:18:00.758Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "xml_generator.py",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\xml_generator.py",
+              "RelativeDocumentMoniker": "xml_generator.py",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\xml_generator.py",
+              "RelativeToolTip": "xml_generator.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-03-24T22:18:57.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "update_consignee.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_consignee.html",
+              "RelativeDocumentMoniker": "templates\\update_consignee.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_consignee.html",
+              "RelativeToolTip": "templates\\update_consignee.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-27T21:31:48.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "transport_modes.html",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\transport_modes.html",
+              "RelativeDocumentMoniker": "templates\\transport_modes.html",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\transport_modes.html",
+              "RelativeToolTip": "templates\\transport_modes.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-01T20:36:43.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "packages.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\packages.html",
               "RelativeDocumentMoniker": "templates\\packages.html",
@@ -270,12 +311,11 @@
               "RelativeToolTip": "templates\\packages.html",
               "ViewState": "AgIAACgAAABAZK42xYkjwBkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T21:09:30.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T21:09:30.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "update_transport_mode.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_transport_mode.html",
               "RelativeDocumentMoniker": "templates\\update_transport_mode.html",
@@ -283,12 +323,11 @@
               "RelativeToolTip": "templates\\update_transport_mode.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T20:51:01.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T20:51:01.322Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "incoterms.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\incoterms.html",
               "RelativeDocumentMoniker": "templates\\incoterms.html",
@@ -296,38 +335,11 @@
               "RelativeToolTip": "templates\\incoterms.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T19:46:03.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T19:46:03.354Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "consignees.html",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html",
-              "RelativeDocumentMoniker": "templates\\consignees.html",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\consignees.html",
-              "RelativeToolTip": "templates\\consignees.html",
-              "ViewState": "AgIAABkAAAAAAAAAAAAcwB0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:03.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "base.html",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html",
-              "RelativeDocumentMoniker": "templates\\Base.html",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\Base.html",
-              "RelativeToolTip": "templates\\Base.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T21:47:18.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "update_country.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_country.html",
               "RelativeDocumentMoniker": "templates\\update_country.html",
@@ -335,12 +347,11 @@
               "RelativeToolTip": "templates\\update_country.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-27T21:31:23.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T21:31:23.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "countries.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\countries.html",
               "RelativeDocumentMoniker": "templates\\countries.html",
@@ -348,12 +359,11 @@
               "RelativeToolTip": "templates\\countries.html",
               "ViewState": "AgIAAAkAAAAAAAAAAAAswBsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:12.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:12.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "update_incoterm.html",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\update_incoterm.html",
               "RelativeDocumentMoniker": "templates\\update_incoterm.html",
@@ -361,12 +371,11 @@
               "RelativeToolTip": "templates\\update_incoterm.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T19:46:19.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T19:46:19.618Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "CustomsDeclarationApp.py",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\CustomsDeclarationApp.py",
               "RelativeDocumentMoniker": "CustomsDeclarationApp.py",
@@ -374,12 +383,11 @@
               "RelativeToolTip": "CustomsDeclarationApp.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:17:50.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:50.769Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\.env",
               "RelativeDocumentMoniker": ".env",
@@ -387,8 +395,37 @@
               "RelativeToolTip": ".env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-24T22:17:33.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:33.892Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 235,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:17:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

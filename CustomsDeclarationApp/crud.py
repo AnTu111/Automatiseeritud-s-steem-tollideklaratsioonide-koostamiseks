@@ -167,3 +167,83 @@ def delete_harmonized_code(db: Session, code_id: int):
         db.delete(db_code)
         db.commit()
     return db_code
+
+
+def get_customs_offices(db: Session):
+    return db.query(models.CustomsOffice).all()
+
+def create_customs_office(db: Session, office: schemas.CustomsOfficeCreate):
+    db_office = models.CustomsOffice(**office.model_dump())
+    db.add(db_office)
+    db.commit()
+    db.refresh(db_office)
+    return db_office
+
+def update_customs_office(db: Session, office_id: int, code: str, location: str):
+    db_office = db.query(models.CustomsOffice).filter(models.CustomsOffice.id == office_id).first()
+    if db_office:
+        db_office.code = code
+        db_office.location = location
+        db.commit()
+        db.refresh(db_office)
+    return db_office
+
+def delete_customs_office(db: Session, office_id: int):
+    db_office = db.query(models.CustomsOffice).filter(models.CustomsOffice.id == office_id).first()
+    if db_office:
+        db.delete(db_office)
+        db.commit()
+    return db_office
+
+def get_currencies(db: Session):
+    return db.query(models.Currency).all()
+
+def create_currency(db: Session, currency: schemas.CurrencyCreate):
+    db_currency = models.Currency(**currency.model_dump())
+    db.add(db_currency)
+    db.commit()
+    db.refresh(db_currency)
+    return db_currency
+
+def update_currency(db: Session, currency_id: int, code: str, name: str):
+    db_currency = db.query(models.Currency).filter(models.Currency.id == currency_id).first()
+    if db_currency:
+        db_currency.code = code
+        db_currency.name = name
+        db.commit()
+        db.refresh(db_currency)
+    return db_currency
+
+def delete_currency(db: Session, currency_id: int):
+    db_currency = db.query(models.Currency).filter(models.Currency.id == currency_id).first()
+    if db_currency:
+        db.delete(db_currency)
+        db.commit()
+    return db_currency
+
+
+def get_documents(db: Session):
+    return db.query(models.Document).all()
+
+def create_document(db: Session, document: schemas.DocumentCreate):
+    db_doc = models.Document(**document.model_dump())
+    db.add(db_doc)
+    db.commit()
+    db.refresh(db_doc)
+    return db_doc
+
+def update_document(db: Session, doc_id: int, type: str, description: str):
+    db_doc = db.query(models.Document).filter(models.Document.id == doc_id).first()
+    if db_doc:
+        db_doc.type = type
+        db_doc.description = description
+        db.commit()
+        db.refresh(db_doc)
+    return db_doc
+
+def delete_document(db: Session, doc_id: int):
+    db_doc = db.query(models.Document).filter(models.Document.id == doc_id).first()
+    if db_doc:
+        db.delete(db_doc)
+        db.commit()
+    return db_doc

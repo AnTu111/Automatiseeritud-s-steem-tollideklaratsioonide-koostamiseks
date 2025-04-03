@@ -54,6 +54,9 @@
     <Content Include="templates\base.html" />
     <Content Include="templates\consignees.html" />
     <Content Include="templates\countries.html" />
+    <Content Include="templates\currencies.html" />
+    <Content Include="templates\customs_offices.html" />
+    <Content Include="templates\documents.html" />
     <Content Include="templates\harmonized_codes.html" />
     <Content Include="templates\incoterms.html" />
     <Content Include="templates\index.html" />
@@ -61,6 +64,9 @@
     <Content Include="templates\transport_modes.html" />
     <Content Include="templates\update_consignee.html" />
     <Content Include="templates\update_country.html" />
+    <Content Include="templates\update_currency.html" />
+    <Content Include="templates\update_customs_office.html" />
+    <Content Include="templates\update_document.html" />
     <Content Include="templates\update_harmonized_code.html" />
     <Content Include="templates\update_incoterm.html" />
     <Content Include="templates\update_package.html" />

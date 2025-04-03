@@ -79,3 +79,45 @@ class HarmonizedCode(HarmonizedCodeBase):
 
     class Config:
         from_attributes = True
+
+class CustomsOfficeBase(BaseModel):
+    code: str
+    location: str
+
+class CustomsOfficeCreate(CustomsOfficeBase):
+    pass
+
+class CustomsOffice(CustomsOfficeBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+
+class CurrencyBase(BaseModel):
+    code: str
+    name: str
+
+class CurrencyCreate(CurrencyBase):
+    pass
+
+class Currency(CurrencyBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+
+class DocumentBase(BaseModel):
+    type: str
+    description: str
+
+class DocumentCreate(DocumentBase):
+    pass
+
+class Document(DocumentBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
