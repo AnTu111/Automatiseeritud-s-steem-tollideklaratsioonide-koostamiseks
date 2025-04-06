@@ -64,17 +64,22 @@ class Declaration(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     reference_number = Column(String(100), unique=True, nullable=False)
+
+    exporter_id = Column(Integer, ForeignKey("exporters.id"), nullable=False)
+    consignee_id = Column(Integer, ForeignKey("consignees.id"), nullable=False)
+    country_id = Column(Integer, ForeignKey("countries.id"), nullable=False)
+    incoterm_id = Column(Integer, ForeignKey("incoterms.id"), nullable=False)
+    currency_id = Column(Integer, ForeignKey("currencies.id"), nullable=False)
+    customs_office_id = Column(Integer, ForeignKey("customs_offices.id"), nullable=False)
+    transport_mode_id = Column(Integer, ForeignKey("transport_modes.id"), nullable=False)
+
+    location = Column(String(255), nullable=True)
+
+    # Optional extras (можно добавить позже, если будут использоваться)
     agent_number = Column(String(100))
     invoice_currency = Column(String(50))
-    location = Column(String(255))
     transport_document = Column(String(255))
-    validity_date = Column(String(50))  # Можно сделать Date, если нужно
-
-    country_of_destination_id = Column(Integer, ForeignKey("countries.id"))
-    incoterm_id = Column(Integer, ForeignKey("incoterms.id"))
-
-    country_of_destination = relationship("Country")
-    incoterm = relationship("Incoterm")
+    validity_date = Column(String(50))  # или Date
 
 
 #  (Goods)
@@ -125,7 +130,16 @@ class Document(Base):
     description = Column(String(255), nullable=False)
 
 
+class Exporter(Base):
+    __tablename__ = "exporters"
 
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(255), nullable=False)
+    identification_number = Column(String(50), nullable=False)
+    street = Column(String(255))
+    postcode = Column(String(20))
+    city = Column(String(255))
+    country_code = Column(String(10))
 
 
 # Подключаемся к MySQL

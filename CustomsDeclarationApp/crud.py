@@ -247,3 +247,36 @@ def delete_document(db: Session, doc_id: int):
         db.delete(db_doc)
         db.commit()
     return db_doc
+
+def get_exporters(db: Session):
+    return db.query(models.Exporter).all()
+
+def create_exporter(db: Session, exporter: schemas.ExporterCreate):
+    db_exporter = models.Exporter(**exporter.model_dump())
+    db.add(db_exporter)
+    db.commit()
+    db.refresh(db_exporter)
+    return db_exporter
+
+def update_exporter(db: Session, exporter_id: int, exporter_data: schemas.ExporterCreate):
+    db_exporter = db.query(models.Exporter).filter(models.Exporter.id == exporter_id).first()
+    if db_exporter:
+        for field, value in exporter_data.model_dump().items():
+            setattr(db_exporter, field, value)
+        db.commit()
+        db.refresh(db_exporter)
+    return db_exporter
+
+def delete_exporter(db: Session, exporter_id: int):
+    db_exporter = db.query(models.Exporter).filter(models.Exporter.id == exporter_id).first()
+    if db_exporter:
+        db.delete(db_exporter)
+        db.commit()
+    return db_exporter
+
+def create_declaration(db: Session, declaration: schemas.DeclarationCreate):
+    db_decl = models.Declaration(**declaration.model_dump())
+    db.add(db_decl)
+    db.commit()
+    db.refresh(db_decl)
+    return db_decl

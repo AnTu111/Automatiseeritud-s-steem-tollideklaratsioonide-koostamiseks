@@ -121,3 +121,41 @@ class Document(DocumentBase):
     class Config:
         from_attributes = True
 
+
+class ExporterBase(BaseModel):
+    name: str
+    identification_number: str
+    street: Optional[str] = None
+    postcode: Optional[str] = None
+    city: Optional[str] = None
+    country_code: Optional[str] = None
+
+class ExporterCreate(ExporterBase):
+    pass
+
+class Exporter(ExporterBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+
+class DeclarationBase(BaseModel):
+    reference_number: str
+    exporter_id: int
+    consignee_id: int
+    country_id: int
+    incoterm_id: int
+    currency_id: int
+    customs_office_id: int
+    transport_mode_id: int
+    location: Optional[str] = None
+
+class DeclarationCreate(DeclarationBase):
+    pass
+
+class Declaration(DeclarationBase):
+    id: int
+
+    class Config:
+        from_attributes = True

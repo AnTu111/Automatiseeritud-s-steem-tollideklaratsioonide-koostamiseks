@@ -5,8 +5,11 @@ from sqlalchemy.orm import Session
 import crud, models, schemas
 from database import SessionLocal
 from typing import Optional
+from fastapi.responses import StreamingResponse
+from lxml import etree
+import io
 
-app = FastAPI()
+app = FastAPI(debug=True)
 
 # Подключаем Jinja2
 templates = Jinja2Templates(directory="templates")
@@ -273,3 +276,165 @@ def edit_document(doc_id: int, type: str = Form(...), description: str = Form(..
 def delete_document(doc_id: int, db: Session = Depends(get_db)):
     crud.delete_document(db, doc_id)
     return RedirectResponse(url="/documents", status_code=303)
+
+@app.get("/exporters", response_class=HTMLResponse)
+def exporter_list(request: Request, db: Session = Depends(get_db)):
+    exporters = crud.get_exporters(db)
+    return templates.TemplateResponse("exporters.html", {"request": request, "exporters": exporters})
+
+@app.post("/exporters/add")
+def add_exporter(
+    name: str = Form(...),
+    identification_number: str = Form(...),
+    street: str = Form(""),
+    postcode: str = Form(""),
+    city: str = Form(""),
+    country_code: str = Form(""),
+    db: Session = Depends(get_db)
+):
+    exporter = schemas.ExporterCreate(
+        name=name,
+        identification_number=identification_number,
+        street=street,
+        postcode=postcode,
+        city=city,
+        country_code=country_code
+    )
+    crud.create_exporter(db, exporter)
+    return RedirectResponse(url="/exporters", status_code=303)
+
+@app.get("/exporters/edit/{exporter_id}", response_class=HTMLResponse)
+def edit_exporter_page(exporter_id: int, request: Request, db: Session = Depends(get_db)):
+    exporter = db.query(models.Exporter).filter(models.Exporter.id == exporter_id).first()
+    return templates.TemplateResponse("update_exporter.html", {"request": request, "exporter": exporter})
+
+@app.post("/exporters/edit/{exporter_id}")
+def edit_exporter(
+    exporter_id: int,
+    name: str = Form(...),
+    identification_number: str = Form(...),
+    street: str = Form(""),
+    postcode: str = Form(""),
+    city: str = Form(""),
+    country_code: str = Form(""),
+    db: Session = Depends(get_db)
+):
+    exporter_data = schemas.ExporterCreate(
+        name=name,
+        identification_number=identification_number,
+        street=street,
+        postcode=postcode,
+        city=city,
+        country_code=country_code
+    )
+    crud.update_exporter(db, exporter_id, exporter_data)
+    return RedirectResponse(url="/exporters", status_code=303)
+
+@app.post("/exporters/delete/{exporter_id}")
+def delete_exporter(exporter_id: int, db: Session = Depends(get_db)):
+    crud.delete_exporter(db, exporter_id)
+    return RedirectResponse(url="/exporters", status_code=303)
+
+@app.get("/declarations/new", response_class=HTMLResponse)
+def new_declaration_form(request: Request, db: Session = Depends(get_db)):
+    exporters = crud.get_exporters(db)
+    countries = crud.get_countries(db)
+    incoterms = crud.get_incoterms(db)
+    currencies = crud.get_currencies(db)
+    transport_modes = crud.get_transport_modes(db)
+    customs_offices = crud.get_customs_offices(db)
+    consignees = crud.get_consignees(db)
+    return templates.TemplateResponse("new_declaration.html", {
+        "request": request,
+        "exporters": exporters,
+        "countries": countries,
+        "incoterms": incoterms,
+        "currencies": currencies,
+        "transport_modes": transport_modes,
+        "customs_offices": customs_offices,
+        "consignees": consignees
+    })
+
+@app.post("/declarations/add")
+def add_declaration(
+    request: Request,
+    reference_number: str = Form(...),
+    exporter_id: int = Form(...),
+    consignee_id: int = Form(...),
+    country_id: int = Form(...),
+    incoterm_id: int = Form(...),
+    currency_id: int = Form(...),
+    customs_office_id: int = Form(...),
+    transport_mode_id: int = Form(...),
+    location: Optional[str] = Form(None),
+    db: Session = Depends(get_db)
+):
+    declaration_data = schemas.DeclarationCreate(
+        reference_number=reference_number,
+        exporter_id=exporter_id,
+        consignee_id=consignee_id,
+        country_id=country_id,
+        incoterm_id=incoterm_id,
+        currency_id=currency_id,
+        customs_office_id=customs_office_id,
+        transport_mode_id=transport_mode_id,
+        location=location
+    )
+    declaration = crud.create_declaration(db, declaration_data)
+    return RedirectResponse(url=f"/declarations/{declaration.id}", status_code=303)
+
+@app.get("/declarations/{declaration_id}", response_class=HTMLResponse)
+def view_declaration(declaration_id: int, request: Request, db: Session = Depends(get_db)):
+    declaration = db.query(models.Declaration).get(declaration_id)
+    return templates.TemplateResponse("declaration_detail.html", {
+        "request": request,
+        "declaration": declaration
+    })
+
+@app.post("/declarations/{declaration_id}/generate_xml")
+def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db)):
+    declaration = db.query(models.Declaration).get(declaration_id)
+
+    # Создаём XML-элементы
+    root = etree.Element("AES515")
+
+    export_op = etree.SubElement(root, "ExportOperation")
+    etree.SubElement(export_op, "ReferenceNumber").text = declaration.reference_number
+    etree.SubElement(export_op, "IncotermCode").text = declaration.incoterm.code
+    etree.SubElement(export_op, "DeliveryLocation").text = declaration.location or ""
+
+    exporter = declaration.exporter
+    exporter_el = etree.SubElement(export_op, "Exporter")
+    etree.SubElement(exporter_el, "Name").text = exporter.name
+    etree.SubElement(exporter_el, "IdentificationNumber").text = exporter.identification_number
+    etree.SubElement(exporter_el, "Street").text = exporter.street or ""
+    etree.SubElement(exporter_el, "Postcode").text = exporter.postcode or ""
+    etree.SubElement(exporter_el, "City").text = exporter.city or ""
+    etree.SubElement(exporter_el, "CountryCode").text = exporter.country_code or ""
+
+    # Declarant (фиксированное значение)
+    declarant_el = etree.SubElement(export_op, "Declarant")
+    etree.SubElement(declarant_el, "Name").text = "My Company OÜ"
+    etree.SubElement(declarant_el, "IdentificationNumber").text = "12345678"
+    etree.SubElement(declarant_el, "Street").text = "Fixed St 1"
+    etree.SubElement(declarant_el, "Postcode").text = "12345"
+    etree.SubElement(declarant_el, "City").text = "Tallinn"
+    etree.SubElement(declarant_el, "CountryCode").text = "EE"
+
+    # Добавим страну, таможню, транспорт и т.д.
+    etree.SubElement(export_op, "CountryOfDestination").text = declaration.country.code
+    etree.SubElement(export_op, "CurrencyCode").text = declaration.currency.code
+    etree.SubElement(export_op, "TransportMode").text = declaration.transport_mode.name
+    etree.SubElement(export_op, "CustomsOffice").text = declaration.customs_office.code
+
+    # Формируем XML-строку
+    tree = etree.ElementTree(root)
+    xml_bytes = io.BytesIO()
+    tree.write(xml_bytes, xml_declaration=True, encoding="UTF-8", pretty_print=True)
+    xml_bytes.seek(0)
+
+    # Отправляем как файл
+    filename = f"declaration_{declaration.reference_number}.xml"
+    return StreamingResponse(xml_bytes, media_type="application/xml", headers={
+        "Content-Disposition": f"attachment; filename={filename}"
+    })

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c6a50287-c2ee-40e0-bb10-9ff724830240</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>database.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -56,10 +56,13 @@
     <Content Include="templates\countries.html" />
     <Content Include="templates\currencies.html" />
     <Content Include="templates\customs_offices.html" />
+    <Content Include="templates\declaration_detail.html" />
     <Content Include="templates\documents.html" />
+    <Content Include="templates\exporters.html" />
     <Content Include="templates\harmonized_codes.html" />
     <Content Include="templates\incoterms.html" />
     <Content Include="templates\index.html" />
+    <Content Include="templates\new_declaration.html" />
     <Content Include="templates\packages.html" />
     <Content Include="templates\transport_modes.html" />
     <Content Include="templates\update_consignee.html" />
@@ -67,6 +70,7 @@
     <Content Include="templates\update_currency.html" />
     <Content Include="templates\update_customs_office.html" />
     <Content Include="templates\update_document.html" />
+    <Content Include="templates\update_exporter.html" />
     <Content Include="templates\update_harmonized_code.html" />
     <Content Include="templates\update_incoterm.html" />
     <Content Include="templates\update_package.html" />
