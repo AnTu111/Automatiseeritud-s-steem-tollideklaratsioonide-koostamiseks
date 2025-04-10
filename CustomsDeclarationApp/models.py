@@ -63,11 +63,11 @@ class Declaration(Base):
     __tablename__ = "declarations"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    reference_number = Column(String(100), unique=True, nullable=False)
+    reference_number = Column(String(100), nullable=False)
 
     exporter_id = Column(Integer, ForeignKey("exporters.id"), nullable=False)
     consignee_id = Column(Integer, ForeignKey("consignees.id"), nullable=False)
-    country_id = Column(Integer, ForeignKey("countries.id"), nullable=False)
+    country_of_destination_id = Column(Integer, ForeignKey("countries.id"), nullable=False)
     incoterm_id = Column(Integer, ForeignKey("incoterms.id"), nullable=False)
     currency_id = Column(Integer, ForeignKey("currencies.id"), nullable=False)
     customs_office_id = Column(Integer, ForeignKey("customs_offices.id"), nullable=False)
@@ -75,11 +75,14 @@ class Declaration(Base):
 
     location = Column(String(255), nullable=True)
 
-    # Optional extras (можно добавить позже, если будут использоваться)
-    agent_number = Column(String(100))
-    invoice_currency = Column(String(50))
-    transport_document = Column(String(255))
-    validity_date = Column(String(50))  # или Date
+    exporter = relationship("Exporter")
+    consignee = relationship("Consignee")
+    country_of_destination = relationship("Country", foreign_keys=[country_of_destination_id])
+    incoterm = relationship("Incoterm")
+    currency = relationship("Currency")
+    customs_office = relationship("CustomsOffice")
+    transport_mode = relationship("TransportMode")
+
 
 
 #  (Goods)
@@ -143,7 +146,7 @@ class Exporter(Base):
 
 
 # Подключаемся к MySQL
-engine = create_engine("mysql+pymysql://root@localhost/customs_declarations")
+engine = create_engine("mysql+pymysql://root:@localhost/customs_declarations")
 
 # Создаем таблицы
 Base.metadata.create_all(engine)

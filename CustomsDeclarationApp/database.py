@@ -2,7 +2,7 @@
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Настройки базы данных
-DB_URL = "mysql+pymysql://root@localhost/customs_declarations"
+DB_URL = "mysql+pymysql://root:@localhost/customs_declarations"
 
 # Создание движка
 engine = create_engine(DB_URL)

@@ -361,7 +361,7 @@ def add_declaration(
     reference_number: str = Form(...),
     exporter_id: int = Form(...),
     consignee_id: int = Form(...),
-    country_id: int = Form(...),
+    country_of_destination_id: int = Form(...),
     incoterm_id: int = Form(...),
     currency_id: int = Form(...),
     customs_office_id: int = Form(...),
@@ -369,11 +369,23 @@ def add_declaration(
     location: Optional[str] = Form(None),
     db: Session = Depends(get_db)
 ):
+    print("Received data:", {
+        "reference_number": reference_number,
+        "exporter_id": exporter_id,
+        "consignee_id": consignee_id,
+        "country_of_destination_id": country_of_destination_id,
+        "incoterm_id": incoterm_id,
+        "currency_id": currency_id,
+        "customs_office_id": customs_office_id,
+        "transport_mode_id": transport_mode_id,
+        "location": location
+    })
+
     declaration_data = schemas.DeclarationCreate(
         reference_number=reference_number,
         exporter_id=exporter_id,
         consignee_id=consignee_id,
-        country_id=country_id,
+        country_of_destination_id=country_of_destination_id,
         incoterm_id=incoterm_id,
         currency_id=currency_id,
         customs_office_id=customs_office_id,
@@ -382,6 +394,7 @@ def add_declaration(
     )
     declaration = crud.create_declaration(db, declaration_data)
     return RedirectResponse(url=f"/declarations/{declaration.id}", status_code=303)
+
 
 @app.get("/declarations/{declaration_id}", response_class=HTMLResponse)
 def view_declaration(declaration_id: int, request: Request, db: Session = Depends(get_db)):
@@ -422,7 +435,7 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     etree.SubElement(declarant_el, "CountryCode").text = "EE"
 
     # Добавим страну, таможню, транспорт и т.д.
-    etree.SubElement(export_op, "CountryOfDestination").text = declaration.country.code
+    etree.SubElement(export_op, "CountryOfDestination").text = declaration.country_of_destination.code
     etree.SubElement(export_op, "CurrencyCode").text = declaration.currency.code
     etree.SubElement(export_op, "TransportMode").text = declaration.transport_mode.name
     etree.SubElement(export_op, "CustomsOffice").text = declaration.customs_office.code

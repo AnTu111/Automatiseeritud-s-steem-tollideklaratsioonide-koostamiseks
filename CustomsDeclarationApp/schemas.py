@@ -1,3 +1,4 @@
+print("✅ Use the correct file schemas.py")
 from pydantic import BaseModel
 from typing import Optional
 
@@ -93,7 +94,6 @@ class CustomsOffice(CustomsOfficeBase):
     class Config:
         from_attributes = True
 
-
 class CurrencyBase(BaseModel):
     code: str
     name: str
@@ -107,7 +107,6 @@ class Currency(CurrencyBase):
     class Config:
         from_attributes = True
 
-
 class DocumentBase(BaseModel):
     type: str
     description: str
@@ -120,7 +119,6 @@ class Document(DocumentBase):
 
     class Config:
         from_attributes = True
-
 
 class ExporterBase(BaseModel):
     name: str
@@ -139,12 +137,11 @@ class Exporter(ExporterBase):
     class Config:
         from_attributes = True
 
-
 class DeclarationBase(BaseModel):
     reference_number: str
     exporter_id: int
     consignee_id: int
-    country_id: int
+    country_of_destination_id: int
     incoterm_id: int
     currency_id: int
     customs_office_id: int
