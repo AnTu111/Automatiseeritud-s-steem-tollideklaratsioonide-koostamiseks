@@ -83,6 +83,9 @@ class Declaration(Base):
     customs_office = relationship("CustomsOffice")
     transport_mode = relationship("TransportMode")
 
+    lrn = Column(String(100))  # Вводится вручную
+    total_amount_invoiced = Column(Float)  # Вводится вручную
+    invoice_currency = Column(String(10))  # Совпадает с internalCurrencyUnit
 
 
 #  (Goods)

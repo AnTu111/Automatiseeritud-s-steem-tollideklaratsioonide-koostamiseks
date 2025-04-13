@@ -367,8 +367,13 @@ def add_declaration(
     customs_office_id: int = Form(...),
     transport_mode_id: int = Form(...),
     location: Optional[str] = Form(None),
-    db: Session = Depends(get_db)
+    lrn: str = Form(...),
+    total_amount_invoiced: float = Form(...),
+    db: Session = Depends(get_db)  # ✅ db должен быть ЗДЕСЬ и только один раз
 ):
+    # Получаем код валюты по ID
+    invoice_currency = crud.get_currency_by_id(db, currency_id).code
+
     print("Received data:", {
         "reference_number": reference_number,
         "exporter_id": exporter_id,
@@ -378,7 +383,10 @@ def add_declaration(
         "currency_id": currency_id,
         "customs_office_id": customs_office_id,
         "transport_mode_id": transport_mode_id,
-        "location": location
+        "location": location,
+        "lrn": lrn,
+        "total_amount_invoiced": total_amount_invoiced,
+        "invoice_currency": invoice_currency
     })
 
     declaration_data = schemas.DeclarationCreate(
@@ -390,10 +398,15 @@ def add_declaration(
         currency_id=currency_id,
         customs_office_id=customs_office_id,
         transport_mode_id=transport_mode_id,
-        location=location
+        location=location,
+        lrn=lrn,
+        total_amount_invoiced=total_amount_invoiced,
+        invoice_currency=invoice_currency
     )
+
     declaration = crud.create_declaration(db, declaration_data)
     return RedirectResponse(url=f"/declarations/{declaration.id}", status_code=303)
+
 
 
 @app.get("/declarations/{declaration_id}", response_class=HTMLResponse)
@@ -420,6 +433,14 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     etree.SubElement(export_op, "ReferenceNumber").text = declaration.reference_number
     etree.SubElement(export_op, "IncotermCode").text = declaration.incoterm.code
     etree.SubElement(export_op, "DeliveryLocation").text = declaration.location or ""
+    etree.SubElement(export_op, "LRN").text = declaration.lrn
+    etree.SubElement(export_op, "MRN").text = "24EE1210E0000000B0"
+    etree.SubElement(export_op, "declarationType").text = "EX"
+    etree.SubElement(export_op, "additionalDeclarationType").text = "A"
+    etree.SubElement(export_op, "security").text = "2"
+    etree.SubElement(export_op, "totalAmountInvoiced").text = str(declaration.total_amount_invoiced)
+    etree.SubElement(export_op, "invoiceCurrency").text = declaration.invoice_currency
+    etree.SubElement(export_op, "ndAgentNumber").text = "E2018/015"
 
     # ===== Exporter =====
     exporter = etree.SubElement(root, "Exporter")
@@ -458,6 +479,11 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     shipment = etree.SubElement(root, "GoodsShipment")
 
     # можно добавить natureOfTransaction, countryOfExport и др. (по желанию)
+    # ===== DeliveryTerms =====
+    delivery_terms = etree.SubElement(shipment, "DeliveryTerms")
+    etree.SubElement(delivery_terms, "incotermCode").text = declaration.incoterm.code
+    etree.SubElement(delivery_terms, "location").text = declaration.location or ""
+    etree.SubElement(delivery_terms, "country").text = declaration.country_of_destination.code
 
     consignment = etree.SubElement(shipment, "Consignment")
 

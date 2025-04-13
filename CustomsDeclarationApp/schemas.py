@@ -147,6 +147,10 @@ class DeclarationBase(BaseModel):
     customs_office_id: int
     transport_mode_id: int
     location: Optional[str] = None
+    lrn: Optional[str] = None
+    total_amount_invoiced: Optional[float] = None
+    invoice_currency: Optional[str] = None
+
 
 class DeclarationCreate(DeclarationBase):
     pass

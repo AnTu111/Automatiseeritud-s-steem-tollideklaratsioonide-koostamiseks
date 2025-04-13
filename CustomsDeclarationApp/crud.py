@@ -280,3 +280,7 @@ def create_declaration(db: Session, declaration: schemas.DeclarationCreate):
     db.commit()
     db.refresh(db_decl)
     return db_decl
+
+def get_currency_by_id(db: Session, currency_id: int):
+    return db.query(models.Currency).filter(models.Currency.id == currency_id).first()
+
