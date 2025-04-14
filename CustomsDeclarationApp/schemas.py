@@ -1,7 +1,7 @@
-print("✅ Use the correct file schemas.py")
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
+# --- Country ---
 class CountryBase(BaseModel):
     name: str
     code: str
@@ -15,6 +15,7 @@ class Country(CountryBase):
     class Config:
         from_attributes = True
 
+# --- Consignee ---
 class ConsigneeBase(BaseModel):
     name: str
     address: str
@@ -30,6 +31,7 @@ class Consignee(ConsigneeBase):
     class Config:
         from_attributes = True
 
+# --- Incoterm ---
 class IncotermBase(BaseModel):
     code: str
     description: Optional[str] = None
@@ -43,6 +45,7 @@ class Incoterm(IncotermBase):
     class Config:
         from_attributes = True
 
+# --- TransportMode ---
 class TransportModeBase(BaseModel):
     name: str
 
@@ -55,6 +58,7 @@ class TransportMode(TransportModeBase):
     class Config:
         from_attributes = True
 
+# --- Package ---
 class PackageBase(BaseModel):
     type: str
     description: Optional[str] = None
@@ -68,6 +72,7 @@ class Package(PackageBase):
     class Config:
         from_attributes = True
 
+# --- HarmonizedCode ---
 class HarmonizedCodeBase(BaseModel):
     code: str
     description: Optional[str] = None
@@ -81,6 +86,7 @@ class HarmonizedCode(HarmonizedCodeBase):
     class Config:
         from_attributes = True
 
+# --- CustomsOffice ---
 class CustomsOfficeBase(BaseModel):
     code: str
     location: str
@@ -94,6 +100,7 @@ class CustomsOffice(CustomsOfficeBase):
     class Config:
         from_attributes = True
 
+# --- Currency ---
 class CurrencyBase(BaseModel):
     code: str
     name: str
@@ -107,6 +114,7 @@ class Currency(CurrencyBase):
     class Config:
         from_attributes = True
 
+# --- Document (Справочник SupportingDocument) ---
 class DocumentBase(BaseModel):
     type: str
     description: str
@@ -120,6 +128,7 @@ class Document(DocumentBase):
     class Config:
         from_attributes = True
 
+# --- Exporter ---
 class ExporterBase(BaseModel):
     name: str
     identification_number: str
@@ -137,6 +146,21 @@ class Exporter(ExporterBase):
     class Config:
         from_attributes = True
 
+# --- Supporting Document (связка: декларация + документ + номер) ---
+class SupportingDocumentBase(BaseModel):
+    document_id: int
+    reference_number: str
+
+class SupportingDocumentCreate(SupportingDocumentBase):
+    pass
+
+class SupportingDocument(SupportingDocumentBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+# --- Declaration ---
 class DeclarationBase(BaseModel):
     reference_number: str
     exporter_id: int
@@ -151,9 +175,8 @@ class DeclarationBase(BaseModel):
     total_amount_invoiced: Optional[float] = None
     invoice_currency: Optional[str] = None
 
-
 class DeclarationCreate(DeclarationBase):
-    pass
+    supporting_documents: Optional[List[SupportingDocumentCreate]] = []
 
 class Declaration(DeclarationBase):
     id: int

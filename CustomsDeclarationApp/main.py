@@ -412,10 +412,31 @@ def add_declaration(
 @app.get("/declarations/{declaration_id}", response_class=HTMLResponse)
 def view_declaration(declaration_id: int, request: Request, db: Session = Depends(get_db)):
     declaration = db.query(models.Declaration).get(declaration_id)
+    if not declaration:
+        raise HTTPException(status_code=404, detail="Declaration not found")
+
+    documents = crud.get_documents(db)  # ⬅️ добавим список всех документов (для формы выбора)
     return templates.TemplateResponse("declaration_detail.html", {
         "request": request,
-        "declaration": declaration
+        "declaration": declaration,
+        "documents": documents  # ⬅️ передаём их в шаблон
     })
+
+
+@app.post("/declarations/{declaration_id}/add_document")
+def add_supporting_document(
+    declaration_id: int,
+    document_id: int = Form(...),
+    reference_number: str = Form(...),
+    db: Session = Depends(get_db)
+):
+    doc_data = schemas.SupportingDocumentCreate(
+        document_id=document_id,
+        reference_number=reference_number
+    )
+    crud.add_supporting_document(db, doc_data, declaration_id)
+    return RedirectResponse(url=f"/declarations/{declaration_id}", status_code=303)
+
 
 @app.post("/declarations/{declaration_id}/generate_xml")
 def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db)):
@@ -539,6 +560,13 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
         etree.SubElement(packaging, "numberOfPackages").text = str(item.number_of_packages or 0)
         etree.SubElement(packaging, "shippingMarks").text = "-"
 
+    # ===== SupportingDocuments =====
+    for i, supp in enumerate(declaration.supporting_documents, start=1):
+        supp_el = etree.SubElement(root, "SupportingDocument")
+        etree.SubElement(supp_el, "sequenceNumber").text = str(i)
+        etree.SubElement(supp_el, "type").text = supp.document.type
+        etree.SubElement(supp_el, "referenceNumber").text = supp.reference_number
+
     # ===== Генерация XML-файла =====
     tree = etree.ElementTree(root)
     xml_bytes = io.BytesIO()
@@ -546,6 +574,7 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     xml_bytes.seek(0)
 
     filename = f"declaration_{declaration.reference_number}.xml"
+
     return StreamingResponse(xml_bytes, media_type="application/xml", headers={
         "Content-Disposition": f"attachment; filename={filename}"
     })

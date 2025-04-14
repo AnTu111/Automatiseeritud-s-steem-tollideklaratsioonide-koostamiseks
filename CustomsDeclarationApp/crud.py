@@ -284,3 +284,13 @@ def create_declaration(db: Session, declaration: schemas.DeclarationCreate):
 def get_currency_by_id(db: Session, currency_id: int):
     return db.query(models.Currency).filter(models.Currency.id == currency_id).first()
 
+def add_supporting_document(db: Session, declaration_id: int, doc: schemas.SupportingDocumentCreate):
+    db_doc = models.SupportingDocument(
+        declaration_id=declaration_id,
+        document_id=doc.document_id,
+        reference_number=doc.reference_number
+    )
+    db.add(db_doc)
+    db.commit()
+    db.refresh(db_doc)
+    return db_doc
