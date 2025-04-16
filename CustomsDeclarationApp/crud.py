@@ -284,7 +284,7 @@ def create_declaration(db: Session, declaration: schemas.DeclarationCreate):
 def get_currency_by_id(db: Session, currency_id: int):
     return db.query(models.Currency).filter(models.Currency.id == currency_id).first()
 
-def add_supporting_document(db: Session, declaration_id: int, doc: schemas.SupportingDocumentCreate):
+def add_supporting_document(db: Session, doc: schemas.SupportingDocumentCreate, declaration_id: int):
     db_doc = models.SupportingDocument(
         declaration_id=declaration_id,
         document_id=doc.document_id,
@@ -294,3 +294,24 @@ def add_supporting_document(db: Session, declaration_id: int, doc: schemas.Suppo
     db.commit()
     db.refresh(db_doc)
     return db_doc
+
+def create_goods(db: Session, goods: schemas.GoodsCreate, declaration_id: int):
+    db_goods = models.Goods(
+        declaration_id=declaration_id,
+        description=goods.description,
+        gross_mass=goods.gross_mass,
+        net_mass=goods.net_mass,
+        number_of_packages=goods.number_of_packages,
+        statistical_value=goods.statistical_value,
+        harmonized_code_id=goods.harmonized_code_id,
+        package_id=goods.package_id,
+    )
+    db.add(db_goods)
+    db.commit()
+    db.refresh(db_goods)
+    return db_goods
+
+def get_goods_by_declaration(db: Session, declaration_id: int):
+    return db.query(models.Goods).filter(models.Goods.declaration_id == declaration_id).all()
+
+

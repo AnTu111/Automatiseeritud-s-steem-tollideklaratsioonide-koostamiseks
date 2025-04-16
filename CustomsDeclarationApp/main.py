@@ -415,12 +415,18 @@ def view_declaration(declaration_id: int, request: Request, db: Session = Depend
     if not declaration:
         raise HTTPException(status_code=404, detail="Declaration not found")
 
-    documents = crud.get_documents(db)  # ⬅️ добавим список всех документов (для формы выбора)
+    documents = crud.get_documents(db)
+    packages = db.query(models.Package).all()
+    harmonized_codes = db.query(models.HarmonizedCode).all()
+
     return templates.TemplateResponse("declaration_detail.html", {
         "request": request,
         "declaration": declaration,
-        "documents": documents  # ⬅️ передаём их в шаблон
+        "documents": documents,
+        "packages": packages,
+        "harmonized_codes": harmonized_codes
     })
+
 
 
 @app.post("/declarations/{declaration_id}/add_document")
@@ -430,10 +436,13 @@ def add_supporting_document(
     reference_number: str = Form(...),
     db: Session = Depends(get_db)
 ):
-    doc_data = schemas.SupportingDocumentCreate(
+    from schemas import SupportingDocumentCreate
+
+    doc_data = SupportingDocumentCreate(
         document_id=document_id,
         reference_number=reference_number
     )
+
     crud.add_supporting_document(db, doc_data, declaration_id)
     return RedirectResponse(url=f"/declarations/{declaration_id}", status_code=303)
 
@@ -448,6 +457,7 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     goods_list = db.query(models.Goods).filter(models.Goods.declaration_id == declaration.id).all()
 
     root = etree.Element("AES515")
+
 
     # ===== ExportOperation =====
     export_op = etree.SubElement(root, "ExportOperation")
@@ -578,4 +588,26 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     return StreamingResponse(xml_bytes, media_type="application/xml", headers={
         "Content-Disposition": f"attachment; filename={filename}"
     })
+
+@app.post("/declarations/{declaration_id}/add_goods")
+def add_goods(
+    declaration_id: int,
+    description: str = Form(...),
+    gross_mass: float = Form(...),
+    net_mass: float = Form(...),
+    number_of_packages: int = Form(...),
+    harmonized_code_id: int = Form(...),
+    package_id: int = Form(...),
+    db: Session = Depends(get_db)
+):
+    goods_data = schemas.GoodsCreate(
+        description=description,
+        gross_mass=gross_mass,
+        net_mass=net_mass,
+        number_of_packages=number_of_packages,
+        harmonized_code_id=harmonized_code_id,
+        package_id=package_id
+    )
+    crud.create_goods(db, goods_data, declaration_id)
+    return RedirectResponse(url=f"/declarations/{declaration_id}", status_code=303)
 

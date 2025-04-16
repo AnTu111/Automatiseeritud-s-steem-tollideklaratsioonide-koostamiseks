@@ -57,7 +57,6 @@ class Document(Base):
     type = Column(String(50), unique=True, nullable=False)
     description = Column(String(255), nullable=False)
 
-    # 🔥 связь с supporting_documents
     supporting_documents = relationship("SupportingDocument", back_populates="document")
 
 class Exporter(Base):
@@ -96,6 +95,7 @@ class Declaration(Base):
 
     # 💾 связь с supporting_documents
     supporting_documents = relationship("SupportingDocument", back_populates="declaration", cascade="all, delete-orphan")
+    goods = relationship("Goods", back_populates="declaration", cascade="all, delete-orphan")
 
 class SupportingDocument(Base):
     __tablename__ = "supporting_documents"
@@ -106,3 +106,22 @@ class SupportingDocument(Base):
 
     declaration = relationship("Declaration", back_populates="supporting_documents")
     document = relationship("Document", back_populates="supporting_documents")
+
+class Goods(Base):
+    __tablename__ = "goods"
+    id = Column(Integer, primary_key=True, index=True)
+    declaration_id = Column(Integer, ForeignKey("declarations.id"))
+    harmonized_code_id = Column(Integer, ForeignKey("harmonized_codes.id"))
+    package_id = Column(Integer, ForeignKey("packages.id"))
+    gross_mass = Column(Integer, nullable=True)
+    net_mass = Column(Integer, nullable=True)
+    number_of_packages = Column(Integer, nullable=True)
+    statistical_value = Column(Integer, default=0)
+
+    declaration = relationship("Declaration", back_populates="goods")
+    harmonized_code = relationship("HarmonizedCode")
+    package = relationship("Package")
+
+# Добавим связь в Declaration:
+Declaration.goods = relationship("Goods", back_populates="declaration", cascade="all, delete-orphan")
+

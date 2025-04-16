@@ -183,3 +183,23 @@ class Declaration(DeclarationBase):
 
     class Config:
         from_attributes = True
+
+
+class GoodsBase(BaseModel):
+    description: str
+    gross_mass: float
+    net_mass: float
+    number_of_packages: int
+    statistical_value: float = 0
+    harmonized_code_id: int
+    package_id: int
+
+class GoodsCreate(GoodsBase):
+    pass
+
+class Goods(GoodsBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
