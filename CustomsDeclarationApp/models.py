@@ -113,6 +113,7 @@ class Goods(Base):
     declaration_id = Column(Integer, ForeignKey("declarations.id"))
     harmonized_code_id = Column(Integer, ForeignKey("harmonized_codes.id"))
     package_id = Column(Integer, ForeignKey("packages.id"))
+    description = Column(String(255), nullable=True)
     gross_mass = Column(Integer, nullable=True)
     net_mass = Column(Integer, nullable=True)
     number_of_packages = Column(Integer, nullable=True)

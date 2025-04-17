@@ -590,9 +590,9 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     })
 
 @app.post("/declarations/{declaration_id}/add_goods")
+@app.post("/declarations/{declaration_id}/add_goods")
 def add_goods(
     declaration_id: int,
-    description: str = Form(...),
     gross_mass: float = Form(...),
     net_mass: float = Form(...),
     number_of_packages: int = Form(...),
@@ -600,8 +600,12 @@ def add_goods(
     package_id: int = Form(...),
     db: Session = Depends(get_db)
 ):
+    harmonized_code = db.query(models.HarmonizedCode).get(harmonized_code_id)
+    if not harmonized_code:
+        raise HTTPException(status_code=404, detail="Harmonized code not found")
+
     goods_data = schemas.GoodsCreate(
-        description=description,
+        description=harmonized_code.description,
         gross_mass=gross_mass,
         net_mass=net_mass,
         number_of_packages=number_of_packages,
@@ -610,4 +614,42 @@ def add_goods(
     )
     crud.create_goods(db, goods_data, declaration_id)
     return RedirectResponse(url=f"/declarations/{declaration_id}", status_code=303)
+
+@app.post("/goods/delete/{goods_id}")
+def delete_goods(goods_id: int, db: Session = Depends(get_db)):
+    goods = db.query(models.Goods).get(goods_id)
+    if not goods:
+        raise HTTPException(status_code=404, detail="Goods not found")
+
+    declaration_id = goods.declaration_id
+    db.delete(goods)
+    db.commit()
+    return RedirectResponse(url=f"/declarations/{declaration_id}", status_code=303)
+
+@app.post("/goods/update/{goods_id}")
+def update_goods(
+    goods_id: int,
+    description: str = Form(...),
+    gross_mass: float = Form(...),
+    net_mass: float = Form(...),
+    number_of_packages: int = Form(...),
+    harmonized_code_id: int = Form(...),
+    package_id: int = Form(...),
+    db: Session = Depends(get_db)
+):
+    goods = db.query(models.Goods).filter(models.Goods.id == goods_id).first()
+    if not goods:
+        raise HTTPException(status_code=404, detail="Goods not found")
+
+    goods.description = description
+    goods.gross_mass = gross_mass
+    goods.net_mass = net_mass
+    goods.number_of_packages = number_of_packages
+    goods.harmonized_code_id = harmonized_code_id
+    goods.package_id = package_id
+
+    db.commit()
+
+    return RedirectResponse(f"/declarations/{goods.declaration_id}", status_code=303)
+
 
