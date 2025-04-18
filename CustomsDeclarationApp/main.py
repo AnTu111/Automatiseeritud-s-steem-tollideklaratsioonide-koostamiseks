@@ -449,23 +449,20 @@ def add_supporting_document(
 
 @app.post("/declarations/{declaration_id}/generate_xml")
 def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db)):
-    from datetime import datetime
+    from datetime import date
     declaration = db.query(models.Declaration).get(declaration_id)
     if not declaration:
         raise HTTPException(status_code=404, detail="Declaration not found")
 
     goods_list = db.query(models.Goods).filter(models.Goods.declaration_id == declaration.id).all()
+    supporting_docs = db.query(models.SupportingDocument).filter(models.SupportingDocument.declaration_id == declaration.id).all()
 
     root = etree.Element("AES515")
 
-
-    # ===== ExportOperation =====
+    # ExportOperation
     export_op = etree.SubElement(root, "ExportOperation")
-    etree.SubElement(export_op, "ReferenceNumber").text = declaration.reference_number
-    etree.SubElement(export_op, "IncotermCode").text = declaration.incoterm.code
-    etree.SubElement(export_op, "DeliveryLocation").text = declaration.location or ""
     etree.SubElement(export_op, "LRN").text = declaration.lrn
-    etree.SubElement(export_op, "MRN").text = "24EE1210E0000000B0"
+    etree.SubElement(export_op, "MRN").text = "24EE1210E0130048B0"
     etree.SubElement(export_op, "declarationType").text = "EX"
     etree.SubElement(export_op, "additionalDeclarationType").text = "A"
     etree.SubElement(export_op, "security").text = "2"
@@ -473,52 +470,51 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     etree.SubElement(export_op, "invoiceCurrency").text = declaration.invoice_currency
     etree.SubElement(export_op, "ndAgentNumber").text = "E2018/015"
 
-    # ===== Exporter =====
-    exporter = etree.SubElement(root, "Exporter")
-    etree.SubElement(exporter, "identificationNumber").text = declaration.exporter.identification_number
-    etree.SubElement(exporter, "name").text = declaration.exporter.name
-    exporter_addr = etree.SubElement(exporter, "Address")
-    etree.SubElement(exporter_addr, "streetAndNumber").text = declaration.exporter.street or ""
-    etree.SubElement(exporter_addr, "postcode").text = declaration.exporter.postcode or ""
-    etree.SubElement(exporter_addr, "city").text = declaration.exporter.city or ""
-    etree.SubElement(exporter_addr, "country").text = declaration.exporter.country_code or "EE"
+    # CustomsOfficeOfExport (фиксированное)
+    export_office = etree.SubElement(root, "CustomsOfficeOfExport")
+    etree.SubElement(export_office, "referenceNumber").text = "EE1210EE"
 
-    # ===== Declarant (фиксированный) =====
+    # Declarant (фиксированный)
     declarant = etree.SubElement(root, "Declarant")
-    etree.SubElement(declarant, "identificationNumber").text = "12345678"
-    etree.SubElement(declarant, "name").text = "My Company OÜ"
+    etree.SubElement(declarant, "identificationNumber").text = "EE11436114"
+    etree.SubElement(declarant, "name").text = "ALEKON CARGO OÜ"
     declarant_addr = etree.SubElement(declarant, "Address")
-    etree.SubElement(declarant_addr, "streetAndNumber").text = "Fixed St 1"
-    etree.SubElement(declarant_addr, "postcode").text = "12345"
-    etree.SubElement(declarant_addr, "city").text = "Tallinn"
+    etree.SubElement(declarant_addr, "streetAndNumber").text = "Saha-Loo põik 4"
+    etree.SubElement(declarant_addr, "postcode").text = "74114"
+    etree.SubElement(declarant_addr, "city").text = "Maardu"
     etree.SubElement(declarant_addr, "country").text = "EE"
+    contact = etree.SubElement(declarant, "ContactPerson")
+    etree.SubElement(contact, "phoneNumber").text = "6388989"
+    etree.SubElement(contact, "eMailAddress").text = "ladu@alekon.ee"
 
-    # ===== CustomsOfficeOfExport (фиксировано) =====
-    office_export = etree.SubElement(root, "CustomsOfficeOfExport")
-    etree.SubElement(office_export, "referenceNumber").text = "EE1210EE"
+    # Representative (копия Declarant)
+    representative = etree.SubElement(root, "Representative")
+    etree.SubElement(representative, "identificationNumber").text = "EE11436114"
+    etree.SubElement(representative, "status").text = "3"
+    rep_contact = etree.SubElement(representative, "ContactPerson")
+    etree.SubElement(rep_contact, "phoneNumber").text = "6388989"
+    etree.SubElement(rep_contact, "eMailAddress").text = "ladu@alekon.ee"
 
-    # ===== CustomsOfficeOfExitDeclared (из базы) =====
-    office_exit = etree.SubElement(root, "CustomsOfficeOfExitDeclared")
-    etree.SubElement(office_exit, "referenceNumber").text = declaration.customs_office.code
+   
+    # CustomsOfficeOfExitDeclared (из декларации)
+    exit_office = etree.SubElement(root, "CustomsOfficeOfExitDeclared")
+    etree.SubElement(exit_office, "referenceNumber").text = declaration.customs_office.code
 
-    # ===== CurrencyExchange вместо CurrencyCode =====
-    currency = etree.SubElement(root, "CurrencyExchange")
-    etree.SubElement(currency, "internalCurrencyUnit").text = declaration.currency.code
-    etree.SubElement(currency, "exchangeRate").text = "1"
+    # CurrencyExchange
+    currency_exchange = etree.SubElement(root, "CurrencyExchange")
+    etree.SubElement(currency_exchange, "internalCurrencyUnit").text = declaration.currency.code
+    etree.SubElement(currency_exchange, "exchangeRate").text = "1"
 
-    # ===== GoodsShipment =====
+    # GoodsShipment
     shipment = etree.SubElement(root, "GoodsShipment")
+    etree.SubElement(shipment, "natureOfTransaction").text = "11"
+    etree.SubElement(shipment, "countryOfExport").text = "EE"
+    etree.SubElement(shipment, "countryOfDestination").text = declaration.country_of_destination.code.upper()
 
-    # можно добавить natureOfTransaction, countryOfExport и др. (по желанию)
-    # ===== DeliveryTerms =====
-    delivery_terms = etree.SubElement(shipment, "DeliveryTerms")
-    etree.SubElement(delivery_terms, "incotermCode").text = declaration.incoterm.code
-    etree.SubElement(delivery_terms, "location").text = declaration.location or ""
-    etree.SubElement(delivery_terms, "country").text = declaration.country_of_destination.code
-
+    # Consignment
     consignment = etree.SubElement(shipment, "Consignment")
 
-    # ===== Consignee =====
+    # Consignee
     consignee = etree.SubElement(consignment, "Consignee")
     etree.SubElement(consignee, "name").text = declaration.consignee.name
     consignee_addr = etree.SubElement(consignee, "Address")
@@ -528,7 +524,7 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     etree.SubElement(consignee_addr, "city").text = addr_parts[2] if len(addr_parts) > 2 else ""
     etree.SubElement(consignee_addr, "country").text = declaration.country_of_destination.code
 
-    # ===== LocationOfGoods (жёстко задано) =====
+    # LocationOfGoods (жёстко заданный)
     location = etree.SubElement(consignment, "LocationOfGoods")
     etree.SubElement(location, "typeOfLocation").text = "D"
     etree.SubElement(location, "qualifierOfIdentification").text = "Z"
@@ -538,58 +534,65 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
     etree.SubElement(location_addr, "city").text = "Maardu"
     etree.SubElement(location_addr, "country").text = "EE"
 
-    # ===== TransportDocument (жёстко задано) =====
+    # TransportDocument (жёстко заданный)
     transport_doc = etree.SubElement(consignment, "TransportDocument")
     etree.SubElement(transport_doc, "sequenceNumber").text = "1"
     etree.SubElement(transport_doc, "type").text = "N730"
     etree.SubElement(transport_doc, "referenceNumber").text = "CMR"
 
-    # ===== GoodsItem =====
-    for i, item in enumerate(goods_list, start=1):
-        goods_el = etree.SubElement(shipment, "GoodsItem")
-        etree.SubElement(goods_el, "declarationGoodsItemNumber").text = str(i)
-        etree.SubElement(goods_el, "statisticalValue").text = str(item.statistical_value or 0)
+    delivery = etree.SubElement(shipment, "DeliveryTerms")
+    etree.SubElement(delivery, "incotermCode").text = declaration.incoterm.code
+    etree.SubElement(delivery, "location").text = declaration.location or ""
+    etree.SubElement(delivery, "country").text = declaration.country_of_destination.code
 
-        procedure = etree.SubElement(goods_el, "Procedure")
-        etree.SubElement(procedure, "requestedProcedure").text = "10"
-        etree.SubElement(procedure, "previousProcedure").text = "00"
+    # GoodsItems
+    for idx, item in enumerate(goods_list, start=1):
+        g = etree.SubElement(shipment, "GoodsItem")
+        etree.SubElement(g, "declarationGoodsItemNumber").text = str(idx)
+        etree.SubElement(g, "statisticalValue").text = "0"
 
-        commodity = etree.SubElement(goods_el, "Commodity")
-        etree.SubElement(commodity, "descriptionOfGoods").text = item.description or ""
-        code_el = etree.SubElement(commodity, "CommodityCode")
-        etree.SubElement(code_el, "harmonizedSystemSubHeadingCode").text = item.harmonized_code.code if item.harmonized_code else ""
-        etree.SubElement(code_el, "combinedNomenclatureCode").text = "00"
+        proc = etree.SubElement(g, "Procedure")
+        etree.SubElement(proc, "requestedProcedure").text = "10"
+        etree.SubElement(proc, "previousProcedure").text = "00"
 
-        measures = etree.SubElement(commodity, "GoodsMeasure")
-        etree.SubElement(measures, "grossMass").text = str(item.gross_mass or 0)
-        etree.SubElement(measures, "netMass").text = str(item.net_mass or 0)
+        commodity = etree.SubElement(g, "Commodity")
+        etree.SubElement(commodity, "descriptionOfGoods").text = item.harmonized_code.description or ""
+        cc = etree.SubElement(commodity, "CommodityCode")
+        etree.SubElement(cc, "harmonizedSystemSubHeadingCode").text = item.harmonized_code.code
+        etree.SubElement(cc, "combinedNomenclatureCode").text = "00"
 
-        packaging = etree.SubElement(goods_el, "Packaging")
-        etree.SubElement(packaging, "sequenceNumber").text = "1"
-        etree.SubElement(packaging, "typeOfPackages").text = item.package.type if item.package else ""
-        etree.SubElement(packaging, "numberOfPackages").text = str(item.number_of_packages or 0)
-        etree.SubElement(packaging, "shippingMarks").text = "-"
+        gm = etree.SubElement(commodity, "GoodsMeasure")
+        etree.SubElement(gm, "grossMass").text = str(item.gross_mass)
+        etree.SubElement(gm, "netMass").text = str(item.net_mass)
 
-    # ===== SupportingDocuments =====
-    for i, supp in enumerate(declaration.supporting_documents, start=1):
-        supp_el = etree.SubElement(root, "SupportingDocument")
-        etree.SubElement(supp_el, "sequenceNumber").text = str(i)
-        etree.SubElement(supp_el, "type").text = supp.document.type
-        etree.SubElement(supp_el, "referenceNumber").text = supp.reference_number
+        pkg = etree.SubElement(g, "Packaging")
+        etree.SubElement(pkg, "sequenceNumber").text = "1"
+        etree.SubElement(pkg, "typeOfPackages").text = item.package.type
+        etree.SubElement(pkg, "numberOfPackages").text = str(item.number_of_packages)
+        etree.SubElement(pkg, "shippingMarks").text = "-"
 
-    # ===== Генерация XML-файла =====
+        # SupportingDocument внутри GoodsItem
+        item_docs = [d for d in supporting_docs]
+        for doc_idx, doc in enumerate(item_docs, start=1):
+            sd = etree.SubElement(g, "SupportingDocument")
+            etree.SubElement(sd, "sequenceNumber").text = str(doc_idx)
+            etree.SubElement(sd, "type").text = doc.document.type
+            etree.SubElement(sd, "referenceNumber").text = doc.reference_number
+            etree.SubElement(sd, "validityDate").text = str(date.today())
+
+    # Вывод XML
     tree = etree.ElementTree(root)
     xml_bytes = io.BytesIO()
     tree.write(xml_bytes, xml_declaration=True, encoding="UTF-8", pretty_print=True)
     xml_bytes.seek(0)
 
     filename = f"declaration_{declaration.reference_number}.xml"
-
     return StreamingResponse(xml_bytes, media_type="application/xml", headers={
         "Content-Disposition": f"attachment; filename={filename}"
     })
 
-@app.post("/declarations/{declaration_id}/add_goods")
+
+
 @app.post("/declarations/{declaration_id}/add_goods")
 def add_goods(
     declaration_id: int,
