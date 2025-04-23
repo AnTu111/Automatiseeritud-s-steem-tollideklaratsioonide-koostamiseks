@@ -79,11 +79,16 @@ class Declaration(Base):
     incoterm_id = Column(Integer, ForeignKey("incoterms.id"))
     currency_id = Column(Integer, ForeignKey("currencies.id"))
     customs_office_id = Column(Integer, ForeignKey("customs_offices.id"))
-    transport_mode_id = Column(Integer, ForeignKey("transport_modes.id"))
+    # transport_mode_id = Column(Integer, ForeignKey("transport_modes.id"))
     location = Column(String(255), nullable=True)
     lrn = Column(String(100), nullable=True)
     total_amount_invoiced = Column(Integer, nullable=True)
     invoice_currency = Column(String(10), nullable=True)
+
+    # ✅ новые поля
+    container_indicator = Column(Integer, nullable=False, default=0)
+    inland_transport_mode_id = Column(Integer, ForeignKey("transport_modes.id"))
+    border_transport_mode_id = Column(Integer, ForeignKey("transport_modes.id"))
 
     exporter = relationship("Exporter")
     consignee = relationship("Consignee")
@@ -91,9 +96,14 @@ class Declaration(Base):
     incoterm = relationship("Incoterm")
     currency = relationship("Currency")
     customs_office = relationship("CustomsOffice")
-    transport_mode = relationship("TransportMode")
+    inland_transport_mode = relationship("TransportMode", foreign_keys=[inland_transport_mode_id])
+    border_transport_mode = relationship("TransportMode", foreign_keys=[border_transport_mode_id])
 
-    # 💾 связь с supporting_documents
+    # transport_mode = relationship("TransportMode", foreign_keys=[transport_mode_id])
+
+    # ✅ новые связи
+
+    # 💾 связи
     supporting_documents = relationship("SupportingDocument", back_populates="declaration", cascade="all, delete-orphan")
     goods = relationship("Goods", back_populates="declaration", cascade="all, delete-orphan")
 

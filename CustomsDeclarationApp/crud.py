@@ -275,7 +275,22 @@ def delete_exporter(db: Session, exporter_id: int):
     return db_exporter
 
 def create_declaration(db: Session, declaration: schemas.DeclarationCreate):
-    db_decl = models.Declaration(**declaration.model_dump())
+    db_decl = models.Declaration(
+        reference_number=declaration.reference_number,
+        exporter_id=declaration.exporter_id,
+        consignee_id=declaration.consignee_id,
+        country_of_destination_id=declaration.country_of_destination_id,
+        incoterm_id=declaration.incoterm_id,
+        currency_id=declaration.currency_id,
+        customs_office_id=declaration.customs_office_id,
+        container_indicator=declaration.container_indicator,
+        inland_transport_mode_id=declaration.inland_mode_id,
+        border_transport_mode_id=declaration.border_mode_id,
+        location=declaration.location,
+        lrn=declaration.lrn,
+        total_amount_invoiced=declaration.total_amount_invoiced,
+        invoice_currency=declaration.invoice_currency
+    )
     db.add(db_decl)
     db.commit()
     db.refresh(db_decl)

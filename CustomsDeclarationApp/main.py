@@ -365,10 +365,13 @@ def add_declaration(
     incoterm_id: int = Form(...),
     currency_id: int = Form(...),
     customs_office_id: int = Form(...),
-    transport_mode_id: int = Form(...),
+    #transport_mode_id: int = Form(...),
     location: Optional[str] = Form(None),
     lrn: str = Form(...),
     total_amount_invoiced: float = Form(...),
+    container_indicator: int = Form(...),
+    inland_mode_id: int = Form(...),
+    border_mode_id: int = Form(...),
     db: Session = Depends(get_db)  # ✅ db должен быть ЗДЕСЬ и только один раз
 ):
     # Получаем код валюты по ID
@@ -382,7 +385,7 @@ def add_declaration(
         "incoterm_id": incoterm_id,
         "currency_id": currency_id,
         "customs_office_id": customs_office_id,
-        "transport_mode_id": transport_mode_id,
+        #"transport_mode_id": transport_mode_id,
         "location": location,
         "lrn": lrn,
         "total_amount_invoiced": total_amount_invoiced,
@@ -397,7 +400,10 @@ def add_declaration(
         incoterm_id=incoterm_id,
         currency_id=currency_id,
         customs_office_id=customs_office_id,
-        transport_mode_id=transport_mode_id,
+        #transport_mode_id=transport_mode_id,
+        container_indicator=container_indicator,
+        inland_mode_id=inland_mode_id,
+        border_mode_id=border_mode_id,
         location=location,
         lrn=lrn,
         total_amount_invoiced=total_amount_invoiced,
@@ -531,6 +537,10 @@ def generate_declaration_xml(declaration_id: int, db: Session = Depends(get_db))
 
     # === Consignment
     consignment = etree.SubElement(shipment, "Consignment")
+    etree.SubElement(consignment, "containerIndicator").text = str(declaration.container_indicator)
+    etree.SubElement(consignment, "inlandModeOfTransport").text = declaration.inland_transport_mode.name[-1]
+    etree.SubElement(consignment, "modeOfTransportAtTheBorder").text = declaration.border_transport_mode.name[-1]
+
     consignee = etree.SubElement(consignment, "Consignee")
     etree.SubElement(consignee, "name").text = declaration.consignee.name
     consignee_addr = etree.SubElement(consignee, "Address")

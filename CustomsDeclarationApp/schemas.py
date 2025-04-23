@@ -169,7 +169,9 @@ class DeclarationBase(BaseModel):
     incoterm_id: int
     currency_id: int
     customs_office_id: int
-    transport_mode_id: int
+    container_indicator: int
+    inland_mode_id: int
+    border_mode_id: int
     location: Optional[str] = None
     lrn: Optional[str] = None
     total_amount_invoiced: Optional[float] = None
