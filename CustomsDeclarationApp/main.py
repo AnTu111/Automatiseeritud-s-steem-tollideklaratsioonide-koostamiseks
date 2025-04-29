@@ -8,8 +8,13 @@ from typing import Optional
 from fastapi.responses import StreamingResponse
 from lxml import etree
 import io
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(debug=True)
+
+# Подключение папки static
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # Подключаем Jinja2
 templates = Jinja2Templates(directory="templates")
