@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="migrations\" />
+    <Folder Include="static\" />
     <Folder Include="templates\" />
     <Folder Include="routers\" />
   </ItemGroup>
