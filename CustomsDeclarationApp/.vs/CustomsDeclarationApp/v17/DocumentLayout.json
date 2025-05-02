@@ -158,8 +158,7 @@
               "RelativeToolTip": "templates\\documents.html",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T21:32:16.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T21:32:16.596Z"
             },
             {
               "$type": "Document",
@@ -171,8 +170,7 @@
               "RelativeToolTip": "templates\\update_document.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T21:32:43.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T21:32:43.92Z"
             },
             {
               "$type": "Document",
@@ -184,8 +182,7 @@
               "RelativeToolTip": "templates\\exporters.html",
               "ViewState": "AgIAADgAAAAAAAAAAAAQwEYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-06T20:14:59.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T20:14:59.959Z"
             },
             {
               "$type": "Document",
@@ -197,8 +194,7 @@
               "RelativeToolTip": "templates\\update_exporter.html",
               "ViewState": "AgIAABcAAAAAAAAAAAAQwCgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-06T20:15:29.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T20:15:29.667Z"
             },
             {
               "$type": "Document",
@@ -210,8 +206,7 @@
               "RelativeToolTip": "templates\\new_declaration.html",
               "ViewState": "AgIAAGUAAAAAAAAAAAAQwHEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-06T20:35:09.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T20:35:09.673Z"
             },
             {
               "$type": "Document",
@@ -221,7 +216,7 @@
               "RelativeDocumentMoniker": "templates\\declaration_detail.html",
               "ToolTip": "C:\\Users\\admin\\Desktop\\L\u00F5pputoo\\CustomsDeclarationApp\\templates\\declaration_detail.html",
               "RelativeToolTip": "templates\\declaration_detail.html",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-04-06T20:45:40.508Z",
               "EditorCaption": ""
@@ -236,8 +231,7 @@
               "RelativeToolTip": "templates\\Base.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T21:47:18.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T21:47:18.418Z"
             },
             {
               "$type": "Document",
@@ -249,8 +243,7 @@
               "RelativeToolTip": "main.py",
               "ViewState": "AgIAAIECAAAAAAAAAAAUwIsCAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2025-03-24T22:18:07.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:18:07.757Z"
             },
             {
               "$type": "Document",
@@ -262,8 +255,7 @@
               "RelativeToolTip": "templates\\update_currency.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T21:12:09.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T21:12:09.316Z"
             },
             {
               "$type": "Document",
@@ -275,8 +267,7 @@
               "RelativeToolTip": "templates\\currencies.html",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwC4AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T21:11:39.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T21:11:39.038Z"
             },
             {
               "$type": "Document",
@@ -288,8 +279,7 @@
               "RelativeToolTip": "templates\\update_customs_office.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T20:55:48.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T20:55:48.302Z"
             },
             {
               "$type": "Document",
@@ -301,8 +291,7 @@
               "RelativeToolTip": "templates\\customs_offices.html",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwDAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-03T20:54:54.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T20:54:54.64Z"
             },
             {
               "$type": "Document",
@@ -314,8 +303,7 @@
               "RelativeToolTip": "templates\\update_harmonized_code.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-02T21:28:39.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T21:28:39.405Z"
             },
             {
               "$type": "Document",
@@ -327,8 +315,7 @@
               "RelativeToolTip": "templates\\harmonized_codes.html",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwCoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-02T21:28:07.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T21:28:07.322Z"
             },
             {
               "$type": "Document",
@@ -340,8 +327,7 @@
               "RelativeToolTip": "templates\\update_package.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T21:13:55.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T21:13:55.211Z"
             },
             {
               "$type": "Document",
@@ -353,8 +339,7 @@
               "RelativeToolTip": "templates\\packages.html",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwC0AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T21:09:30.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T21:09:30.949Z"
             },
             {
               "$type": "Document",
@@ -366,8 +351,7 @@
               "RelativeToolTip": "templates\\update_transport_mode.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-05-01T20:48:47.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-01T20:48:47.136Z"
             },
             {
               "$type": "Document",
@@ -379,8 +363,7 @@
               "RelativeToolTip": "templates\\update_incoterm.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T19:46:19.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T19:46:19.618Z"
             },
             {
               "$type": "Document",
@@ -392,8 +375,7 @@
               "RelativeToolTip": "templates\\incoterms.html",
               "ViewState": "AgIAABoAAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T19:46:03.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T19:46:03.354Z"
             },
             {
               "$type": "Document",
@@ -405,8 +387,7 @@
               "RelativeToolTip": "templates\\update_consignee.html",
               "ViewState": "AgIAAAoAAAAAAAAAAAAAwB4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-27T21:31:48.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T21:31:48.48Z"
             },
             {
               "$type": "Document",
@@ -418,8 +399,7 @@
               "RelativeToolTip": "templates\\consignees.html",
               "ViewState": "AgIAABoAAAAAAAAAAAAQwCcAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-24T22:17:03.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T22:17:03.45Z"
             },
             {
               "$type": "Document",
@@ -431,8 +411,7 @@
               "RelativeToolTip": "templates\\update_country.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-27T21:31:23.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T21:31:23.805Z"
             },
             {
               "$type": "Document",
@@ -456,8 +435,7 @@
               "RelativeToolTip": "templates\\transport_modes.html",
               "ViewState": "AgIAABUAAAAAAAAAAAAQwCMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-01T20:36:43.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-01T20:36:43.814Z"
             },
             {
               "$type": "Document",
@@ -596,10 +574,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:44:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Bookmark",
